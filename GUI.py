@@ -54,32 +54,34 @@ for game in games:
     frame = ttk.Frame(week_frames[week])
     frame.pack(fill=tk.BOTH, expand=True)
 
+    # Determine the row and column based on the game's index
+    game_index = games.index(game)
+    row = game_index % 8
+    col = (game_index // 8) * 6  # Use a wider column span for each game
+
     if team1_logo:
         label_team1 = tk.Label(frame, image=team1_logo)
         label_team1.image = team1_logo  # Keep a reference to avoid garbage collection
-        label_team1.pack(side=tk.LEFT)
-    label_team1_name = tk.Label(frame, text=game['team1'])
-    label_team1_name.pack(side=tk.LEFT)
+        label_team1.grid(row=row, column=col)  # Use grid layout
 
     vs_label = tk.Label(frame, text=" vs ")
-    vs_label.pack(side=tk.LEFT)
+    vs_label.grid(row=row, column=col + 1)  # Use grid layout
 
     if team2_logo:
         label_team2 = tk.Label(frame, image=team2_logo)
         label_team2.image = team2_logo  # Keep a reference to avoid garbage collection
-        label_team2.pack(side=tk.LEFT)
-    label_team2_name = tk.Label(frame, text=game['team2'])
-    label_team2_name.pack(side=tk.LEFT)
+        label_team2.grid(row=row, column=col + 2)  # Use grid layout
 
     winner_label = tk.Label(frame, text=" - Winner: ")
-    winner_label.pack(side=tk.LEFT)
+    winner_label.grid(row=row, column=col + 3)  # Use grid layout
 
     if winner_logo:
         label_winner = tk.Label(frame, image=winner_logo)
         label_winner.image = winner_logo  # Keep a reference to avoid garbage collection
-        label_winner.pack(side=tk.LEFT)
-    label_winner_name = tk.Label(frame, text=game['winner'])
-    label_winner_name.pack(side=tk.LEFT)
+        label_winner.grid(row=row, column=col + 4)  # Use grid layout
+
+    game_label = tk.Label(frame, text=game['winner'])
+    game_label.grid(row=row, column=col + 5)  # Use grid layout for winner name
 
 # Result Updater
 result_updater_frame = ttk.Frame(root, padding="10")
