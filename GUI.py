@@ -22,8 +22,9 @@ root.rowconfigure(1, weight=1)
 notebook = ttk.Notebook(root)
 notebook.grid(row=0, column=0, columnspan=2, rowspan=2, sticky="nsew")
 
-# Create a dictionary to hold the frames for each week
+# Create a dictionary to hold the frames and listboxes for each week
 week_frames = {}
+week_listboxes = {}
 
 # Create tabs for each week
 for game in games:
@@ -32,9 +33,10 @@ for game in games:
         frame = ttk.Frame(notebook, padding="10")
         notebook.add(frame, text=f"Week {week}")
         week_frames[week] = frame
-    listbox = tk.Listbox(week_frames[week])
-    listbox.pack(fill=tk.BOTH, expand=True)
-    listbox.insert(tk.END, f"{game['team1']} vs {game['team2']} - Winner: {game['winner']}")
+        listbox = tk.Listbox(frame)
+        listbox.pack(fill=tk.BOTH, expand=True)
+        week_listboxes[week] = listbox
+    week_listboxes[week].insert(tk.END, f"{game['team1']} vs {game['team2']} - Winner: {game['winner']}")
 
 # Result Updater
 result_updater_frame = ttk.Frame(root, padding="10")
