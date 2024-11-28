@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from PIL import Image, ImageTk
+from PIL import Image, ImageTk  # You need to install Pillow for image handling
 import json
 import os
 
@@ -10,13 +10,15 @@ with open('teams.json') as f:
 teams = data['teams']
 games = data['games']
 
-# Function to load and resize team logos
-def load_logo(team_name, size):
+# Function to load team logos
+def load_logo(team_name):
     logo_path = os.path.join('logos', f"{team_name}.png")
     if os.path.exists(logo_path):
+        print(f"Loading logo for {team_name} from {logo_path}")
         image = Image.open(logo_path)
-        image = image.resize((size, size), Image.LANCZOS)
+        image = image.resize((50, 50), Image.LANCZOS)  # Updated to Image.LANCZOS
         return ImageTk.PhotoImage(image)
+    print(f"Logo not found for {team_name}")
     return None
 
 # Create the main window
@@ -37,31 +39,7 @@ notebook.grid(row=0, column=0, columnspan=2, rowspan=2, sticky="nsew")
 week_frames = {}
 team_logos = {}
 
-# Function to update the GUI layout based on window size
-def update_layout(event):
-    width = max(event.width // 12, 1)
-    height = max(event.height // 12, 1)
-    size = min(width, height)
-    for game in games:
-        week = game['week']
-        frame = week_frames[week]
-        team1_logo = load_logo(game['team1'], size)
-        team2_logo = load_logo(game['team2'], size)
-        winner_logo = load_logo(game['winner'], size)
-        
-        # Update existing labels with new images
-        for widget in frame.winfo_children():
-            if isinstance(widget, tk.Label) and hasattr(widget, 'image_path'):
-                if widget.image_path == game['team1']:
-                    widget.config(image=team1_logo)
-                    widget.image = team1_logo
-                elif widget.image_path == game['team2']:
-                    widget.config(image=team2_logo)
-                    widget.image = team2_logo
-                elif widget.image_path == game['winner']:
-                    widget.config(image=winner_logo)
-                    widget.image = winner_logo
-
+# Create tabs for each week
 for game in games:
     week = game['week']
     if week not in week_frames:
@@ -69,45 +47,38 @@ for game in games:
         notebook.add(frame, text=f"Week {week}")
         week_frames[week] = frame
 
+    team1_logo = load_logo(game['team1'])
+    team2_logo = load_logo(game['team2'])
+    winner_logo = load_logo(game['winner'])
+
     frame = ttk.Frame(week_frames[week])
     frame.pack(fill=tk.BOTH, expand=True)
 
     # Determine the row and column based on the game's index
     game_index = games.index(game)
     row = game_index % 8
-    col = (game_index // 8) * 6
-
-    # Create initial logos with a default size
-    team1_logo = load_logo(game['team1'], 50)
-    team2_logo = load_logo(game['team2'], 50)
-    winner_logo = load_logo(game['winner'], 50)
+    col = (game_index // 8) * 6  # Use a wider column span for each game
 
     if team1_logo:
         label_team1 = tk.Label(frame, image=team1_logo)
-        label_team1.image = team1_logo
-        label_team1.image_path = game['team1']  # Store path for resizing
-        label_team1.grid(row=row, column=col)
+        label_team1.image = team1_logo  # Keep a reference to avoid garbage collection
+        label_team1.grid(row=row, column=col)  # Use grid layout
 
     vs_label = tk.Label(frame, text=" vs ")
-    vs_label.grid(row=row, column=col + 1)
+    vs_label.grid(row=row, column=col + 1)  # Use grid layout
 
     if team2_logo:
         label_team2 = tk.Label(frame, image=team2_logo)
-        label_team2.image = team2_logo
-        label_team2.image_path = game['team2']  # Store path for resizing
-        label_team2.grid(row=row, column=col + 2)
+        label_team2.image = team2_logo  # Keep a reference to avoid garbage collection
+        label_team2.grid(row=row, column=col + 2)  # Use grid layout
 
     winner_label = tk.Label(frame, text=" - Winner: ")
-    winner_label.grid(row=row, column=col + 3)
+    winner_label.grid(row=row, column=col + 3)  # Use grid layout
 
     if winner_logo:
         label_winner = tk.Label(frame, image=winner_logo)
-        label_winner.image = winner_logo
-        label_winner.image_path = game['winner']  # Store path for resizing
-        label_winner.grid(row=row, column=col + 4)
-
-# Bind the resize event to the update_layout function
-root.bind('<Configure>', update_layout)
+        label_winner.image = winner_logo  # Keep a reference to avoid garbage collection
+        label_winner.grid(row=row, column=col + 4)  # Use grid layout
 
 # Result Updater
 result_updater_frame = ttk.Frame(root, padding="10")
