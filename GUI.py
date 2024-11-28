@@ -80,9 +80,6 @@ for game in games:
         label_winner.image = winner_logo  # Keep a reference to avoid garbage collection
         label_winner.grid(row=row, column=col + 4)  # Use grid layout
 
-    game_label = tk.Label(frame, text=game['winner'])
-    game_label.grid(row=row, column=col + 5)  # Use grid layout for winner name
-
 # Result Updater
 result_updater_frame = ttk.Frame(root, padding="10")
 result_updater_frame.grid(row=0, column=1, sticky="nsew")
