@@ -39,6 +39,14 @@ notebook.grid(row=0, column=0, columnspan=2, rowspan=2, sticky="nsew")
 week_frames = {}
 team_logos = {}
 
+# Count the number of games for each week
+weeks = {}
+for game in games:
+    week = game['week']
+    if week not in weeks:
+        weeks[week] = 0
+    weeks[week] += 1
+
 # Create tabs for each week
 for game in games:
     week = game['week']
@@ -47,31 +55,35 @@ for game in games:
         notebook.add(frame, text=f"Week {week}")
         week_frames[week] = frame
 
+        # Display the number of games for the week
+        week_label = ttk.Label(frame, text=f"Number of games in Week {week}: {weeks[week]}")
+        week_label.pack(anchor='w')
+
     team1_logo = load_logo(game['team1'])
     team2_logo = load_logo(game['team2'])
     winner_logo = load_logo(game['winner'])
 
-    frame = ttk.Frame(week_frames[week])
-    frame.pack(fill=tk.BOTH, expand=True)
+    game_frame = ttk.Frame(week_frames[week])
+    game_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=5)
 
     if team1_logo:
-        label_team1 = tk.Label(frame, image=team1_logo)
+        label_team1 = tk.Label(game_frame, image=team1_logo)
         label_team1.image = team1_logo  # Keep a reference to avoid garbage collection
         label_team1.pack(side=tk.LEFT)
 
-    vs_label = tk.Label(frame, text=" vs ")
+    vs_label = tk.Label(game_frame, text=" vs ")
     vs_label.pack(side=tk.LEFT)
 
     if team2_logo:
-        label_team2 = tk.Label(frame, image=team2_logo)
+        label_team2 = tk.Label(game_frame, image=team2_logo)
         label_team2.image = team2_logo  # Keep a reference to avoid garbage collection
         label_team2.pack(side=tk.LEFT)
 
-    winner_label = tk.Label(frame, text=" - Winner: ")
+    winner_label = tk.Label(game_frame, text=" - Winner: ")
     winner_label.pack(side=tk.LEFT)
 
     if winner_logo:
-        label_winner = tk.Label(frame, image=winner_logo)
+        label_winner = tk.Label(game_frame, image=winner_logo)
         label_winner.image = winner_logo  # Keep a reference to avoid garbage collection
         label_winner.pack(side=tk.LEFT)
         
