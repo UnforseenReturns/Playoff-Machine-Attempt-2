@@ -74,7 +74,7 @@ for game in games:
         label_winner = tk.Label(frame, image=winner_logo)
         label_winner.image = winner_logo  # Keep a reference to avoid garbage collection
         label_winner.pack(side=tk.LEFT)
-
+        
 # Result Updater
 result_updater_frame = ttk.Frame(root, padding="10")
 result_updater_frame.grid(row=0, column=1, sticky="nsew")
