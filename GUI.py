@@ -18,16 +18,23 @@ root.columnconfigure(1, weight=1)
 root.rowconfigure(0, weight=1)
 root.rowconfigure(1, weight=1)
 
-# Game Viewer
-game_viewer_frame = ttk.Frame(root, padding="10")
-game_viewer_frame.grid(row=0, column=0, sticky="nsew")
-ttk.Label(game_viewer_frame, text="Game Viewer").pack()
+# Notebook (tabs)
+notebook = ttk.Notebook(root)
+notebook.grid(row=0, column=0, columnspan=2, rowspan=2, sticky="nsew")
 
-# Listbox to display games
-game_listbox = tk.Listbox(game_viewer_frame)
+# Create a dictionary to hold the frames for each week
+week_frames = {}
+
+# Create tabs for each week
 for game in games:
-    game_listbox.insert(tk.END, f"Week {game['week']}: {game['team1']} vs {game['team2']} - Winner: {game['winner']}")
-game_listbox.pack(fill=tk.BOTH, expand=True)
+    week = game['week']
+    if week not in week_frames:
+        frame = ttk.Frame(notebook, padding="10")
+        notebook.add(frame, text=f"Week {week}")
+        week_frames[week] = frame
+    listbox = tk.Listbox(week_frames[week])
+    listbox.pack(fill=tk.BOTH, expand=True)
+    listbox.insert(tk.END, f"{game['team1']} vs {game['team2']} - Winner: {game['winner']}")
 
 # Result Updater
 result_updater_frame = ttk.Frame(root, padding="10")

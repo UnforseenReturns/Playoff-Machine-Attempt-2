@@ -49,7 +49,7 @@
     { "team1": "Dallas Cowboys", "team2": "Cleveland Browns", "week": 1, "winner": "Cleveland Browns" },
     { "team1": "Washington Commanders", "team2": "Tampa Bay Buccaneers", "week": 1, "winner": "Tampa Bay Buccaneers" },
     { "team1": "Las Angeles Rams", "team2": "Detroit Lions", "week": 1, "winner": "Las Angeles Rams" },
-    { "team1": "New Phyrexia Phyrexians", "team2": "San Francisco 49ers", "week": 1, "winner": "New Phyrexia Phyrexians" }
+    { "team1": "New Phyrexia Phyrexians", "team2": "San Francisco 49ers", "week": 1, "winner": "New Phyrexia Phyrexians" },
 	{ "team1": "Buffalo Bills", "team2": "Miami Dolphins", "week": 2, "winner": "Miami Dolphins" },
 	{ "team1": "New Orleans Saints", "team2": "Dallas Cowboys", "week": 2, "winner": "New Orleans Saints" },
 	{ "team1": "Tampa Bay Buccaneers", "team2": "Detroit Lions", "week": 2, "winner": "Tampa Bay Buccaneers" },
