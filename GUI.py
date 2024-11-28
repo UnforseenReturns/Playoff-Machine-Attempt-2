@@ -39,8 +39,8 @@ team_logos = {}
 
 # Function to update the GUI layout based on window size
 def update_layout(event):
-    width = event.width // 12
-    height = event.height // 12
+    width = max(event.width // 12, 1)
+    height = max(event.height // 12, 1)
     size = min(width, height)
     for game in games:
         week = game['week']
