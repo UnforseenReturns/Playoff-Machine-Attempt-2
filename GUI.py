@@ -1,12 +1,25 @@
 import tkinter as tk
 from tkinter import ttk
+from PIL import Image, ImageTk  # You need to install Pillow for image handling
 import json
+import os
 
 # Load JSON data
 with open('teams.json') as f:
     data = json.load(f)
 teams = data['teams']
 games = data['games']
+
+# Function to load team logos
+def load_logo(team_name):
+    logo_path = os.path.join('logos', f"{team_name}.png")
+    if os.path.exists(logo_path):
+        print(f"Loading logo for {team_name} from {logo_path}")
+        image = Image.open(logo_path)
+        image = image.resize((50, 50), Image.LANCZOS)  # Updated to Image.LANCZOS
+        return ImageTk.PhotoImage(image)
+    print(f"Logo not found for {team_name}")
+    return None
 
 # Create the main window
 root = tk.Tk()
@@ -22,9 +35,9 @@ root.rowconfigure(1, weight=1)
 notebook = ttk.Notebook(root)
 notebook.grid(row=0, column=0, columnspan=2, rowspan=2, sticky="nsew")
 
-# Create a dictionary to hold the frames and listboxes for each week
+# Create a dictionary to hold the frames for each week
 week_frames = {}
-week_listboxes = {}
+team_logos = {}
 
 # Create tabs for each week
 for game in games:
@@ -33,10 +46,40 @@ for game in games:
         frame = ttk.Frame(notebook, padding="10")
         notebook.add(frame, text=f"Week {week}")
         week_frames[week] = frame
-        listbox = tk.Listbox(frame)
-        listbox.pack(fill=tk.BOTH, expand=True)
-        week_listboxes[week] = listbox
-    week_listboxes[week].insert(tk.END, f"{game['team1']} vs {game['team2']} - Winner: {game['winner']}")
+
+    team1_logo = load_logo(game['team1'])
+    team2_logo = load_logo(game['team2'])
+    winner_logo = load_logo(game['winner'])
+
+    frame = ttk.Frame(week_frames[week])
+    frame.pack(fill=tk.BOTH, expand=True)
+
+    if team1_logo:
+        label_team1 = tk.Label(frame, image=team1_logo)
+        label_team1.image = team1_logo  # Keep a reference to avoid garbage collection
+        label_team1.pack(side=tk.LEFT)
+    label_team1_name = tk.Label(frame, text=game['team1'])
+    label_team1_name.pack(side=tk.LEFT)
+
+    vs_label = tk.Label(frame, text=" vs ")
+    vs_label.pack(side=tk.LEFT)
+
+    if team2_logo:
+        label_team2 = tk.Label(frame, image=team2_logo)
+        label_team2.image = team2_logo  # Keep a reference to avoid garbage collection
+        label_team2.pack(side=tk.LEFT)
+    label_team2_name = tk.Label(frame, text=game['team2'])
+    label_team2_name.pack(side=tk.LEFT)
+
+    winner_label = tk.Label(frame, text=" - Winner: ")
+    winner_label.pack(side=tk.LEFT)
+
+    if winner_logo:
+        label_winner = tk.Label(frame, image=winner_logo)
+        label_winner.image = winner_logo  # Keep a reference to avoid garbage collection
+        label_winner.pack(side=tk.LEFT)
+    label_winner_name = tk.Label(frame, text=game['winner'])
+    label_winner_name.pack(side=tk.LEFT)
 
 # Result Updater
 result_updater_frame = ttk.Frame(root, padding="10")
