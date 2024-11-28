@@ -33,7 +33,7 @@ root.rowconfigure(1, weight=1)
 
 # Notebook (tabs)
 notebook = ttk.Notebook(root)
-notebook.grid(row=0, column=0, columnspan=2, rowspan=2, sticky="nsew")
+notebook.grid(row=0, column=0, columnspan=2, rowspan=3, sticky="nsew")
 
 # Create a dictionary to hold the frames for each week
 week_frames = {}
@@ -94,7 +94,7 @@ ttk.Label(result_updater_frame, text="Result Updater").pack()
 
 # Standings Display
 standings_display_frame = ttk.Frame(root, padding="10")
-standings_display_frame.grid(row=1, column=0, sticky="nsew")
+standings_display_frame.grid(row=2, column=1, sticky="nsew")
 ttk.Label(standings_display_frame, text="Standings Display").pack()
 
 # Playoff Predictor
