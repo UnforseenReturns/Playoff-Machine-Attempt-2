@@ -306,5 +306,6 @@
 	{ "team1": "San Francisco 49ers", "team2": "Arizona Cardinals", "week": 18, "winner": null },
 	{ "team1": "Las Angeles Chargers", "team2": "Las Vegas Raiders", "week": 18, "winner": null },
 	{ "team1": "Miami Dolphins", "team2": "New Phyrexia Phyrexians", "week": 18, "winner": null },
+	
   ]
 }
