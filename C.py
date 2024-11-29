@@ -26,7 +26,7 @@ for team in teams:
         print(f"Logo not found for {team['name']}")
 
 # Compute win/loss records
-records = {team['name']: {'wins': 0, 'losses': 0, 'head_to_head': {}, 'division_wins': 0, 'conference_wins': 0, 'common_games_wins': 0} for team in teams}
+records = {team['name']: {'wins': 0, 'losses': 0, 'head_to_head': {}} for team in teams}
 for game in games:
     if game['winner']:
         if game['winner'] == game['team1']:
@@ -35,21 +35,6 @@ for game in games:
         else:
             records[game['team1']]['losses'] += 1
             records[game['team2']]['wins'] += 1
-
-        # Update division wins
-        if game.get('division_game'):
-            records[game['team1']]['division_wins'] += 1
-            records[game['team2']]['division_wins'] += 1
-
-        # Update conference wins
-        if game.get('conference_game'):
-            records[game['team1']]['conference_wins'] += 1
-            records[game['team2']]['conference_wins'] += 1
-
-        # Update common games wins
-        if game.get('common_game'):
-            records[game['team1']]['common_games_wins'] += 1
-            records[game['team2']]['common_games_wins'] += 1
 
     # Update head-to-head
     if game['winner']:
@@ -172,7 +157,7 @@ ttk.Label(playoff_predictor_frame, text="Playoff Predictor").pack()
 
 def apply_tiebreakers(teams):
     # Sort by head-to-head
-    return sorted(teams, key=lambda t: sum(records[t]['head_to_head'].values()), reverse=True)
+    return sorted(teams, key=lambda t: records[t]['head_to_head'], reverse=True)
 
 def update_playoff_predictor():
     for widget in playoff_predictor_frame.winfo_children():
@@ -189,78 +174,39 @@ def update_playoff_predictor():
     nfc_frame = ttk.Frame(playoff_predictor_frame)
     nfc_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
 
-    # Define fixed seedings for AFC and NFC
-    fixed_afc_seedings = [
-        "New Phyrexia Phyrexians",
-        "Los Angeles Chargers",
-        "Cleveland Browns",
-        "Indianapolis Colts",
-        "New England Patriots",
-        "Miami Dolphins",
-        "Las Vegas Raiders"
-    ]
-
-    fixed_nfc_seedings = [
-        # Add NFC seeding logic here, if any specific order is required
-    ]
-
     for conference, conference_teams in conferences.items():
-        if conference == "AFC":
-            top_teams = fixed_afc_seedings
-        else:
-            # Sort teams by wins in descending order within each division
-            divisions = {}
-            for team in conference_teams:
-                division = next(t['division'] for t in teams if t['name'] == team)
-                if division not in divisions:
-                    divisions[division] = []
-                divisions[division].append(team)
+        # Sort teams by wins in descending order within each division
+        divisions = {}
+        for team in conference_teams:
+            division = next(t['division'] for t in teams if t['name'] == team)
+            if division not in divisions:
+                divisions[division] = []
+            divisions[division].append(team)
 
-            top_division_teams = []
-            for division, division_teams in divisions.items():
-                sorted_division_teams = sorted(division_teams, key=lambda t: records[t]['wins'], reverse=True)
-                top_division_teams.append(sorted_division_teams[0])
+        top_division_teams = []
+        for division, division_teams in divisions.items():
+            sorted_division_teams = sorted(division_teams, key=lambda t: records[t]['wins'], reverse=True)
+            top_division_teams.append(sorted_division_teams[0])
 
-            # Sort top division teams by wins
-            sorted_top_division_teams = sorted(top_division_teams, key=lambda t: records[t]['wins'], reverse=True)
+        # Sort top division teams by wins
+        sorted_top_division_teams = sorted(top_division_teams, key=lambda t: records[t]['wins'], reverse=True)
 
-            # Sort remaining teams by wins excluding top division teams
-            remaining_teams = [team for team in conference_teams if team not in sorted_top_division_teams]
-            sorted_remaining_teams = sorted(remaining_teams, key=lambda t: records[t]['wins'], reverse=True)
+        # Sort remaining teams by wins excluding top division teams
+        remaining_teams = [team for team in conference_teams if team not in sorted_top_division_teams]
+        sorted_remaining_teams = sorted(remaining_teams, key=lambda t: records[t]['wins'], reverse=True)
 
-            # Combine top division teams and remaining teams to get top 7 teams
-            top_teams = sorted_top_division_teams + sorted_remaining_teams[:3]
+        # Combine top division teams and remaining teams to get top 7 teams
+        top_teams = sorted_top_division_teams + sorted_remaining_teams[:3]
 
-            # Apply tiebreakers for seeds 5 through 7
-            def division_tiebreaker(teams):
-                # Sort teams by division wins
-                return sorted(teams, key=lambda t: records[t]['division_wins'], reverse=True)
-
-            def conference_tiebreaker(teams):
-                # Sort teams by conference wins
-                return sorted(teams, key=lambda t: records[t]['conference_wins'], reverse=True)
-
-            def common_games_tiebreaker(teams):
-                # Sort teams by common games wins
-                return sorted(teams, key=lambda t: records[t]['common_games_wins'], reverse=True)
-
-            def apply_wild_card_tiebreakers(teams):
-                if len(teams) == 2:
-                    # Apply two-team tiebreaker
-                    if teams[0] in records[teams[1]]['head_to_head']:
-                        if records[teams[1]]['head_to_head'][teams[0]] > records[teams[0]]['head_to_head'][teams[1]]:
-                            teams[0], teams[1] = teams[1], teams[0]
-                    teams = conference_tiebreaker(teams)
-                    teams = common_games_tiebreaker(teams)
-                elif len(teams) > 2:
-                    # Apply three-or-more team tiebreaker
-                    teams = division_tiebreaker(teams)
-                    teams = apply_tiebreakers(teams)  # Head-to-head sweep
-                    teams = conference_tiebreaker(teams)
-                    teams = common_games_tiebreaker(teams)
-                return teams
-
-            top_teams[4:] = apply_wild_card_tiebreakers(top_teams[4:])
+        # Check if teams in Seeds 5 through 7 have played against each other
+        for i in range(4, len(top_teams)):
+            for j in range(i + 1, len(top_teams)):
+                team1 = top_teams[i]
+                team2 = top_teams[j]
+                if team1 in records[team2]['head_to_head']:
+                    if records[team2]['head_to_head'][team1] > records[team1]['head_to_head'][team2]:
+                        # Swap the teams to ensure the winning team has a higher seed
+                        top_teams[i], top_teams[j] = top_teams[j], top_teams[i]
 
         conference_frame = afc_frame if conference == "AFC" else nfc_frame
         conference_label = ttk.Label(conference_frame, text=f"{conference} Playoff Teams", font=("Helvetica", 16))
