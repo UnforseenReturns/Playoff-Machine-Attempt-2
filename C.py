@@ -203,16 +203,23 @@ def update_playoff_predictor():
             for j in range(i + 1, 7):
                 team1 = top_teams[i]
                 team2 = top_teams[j]
-                if team2 in records[team1]['head_to_head']:
-                    if records[team1]['head_to_head'][team2] > records[team2]['head_to_head'][team1]:
-                        # Swap the teams to ensure the winning team has a higher seed
-                        top_teams[i], top_teams[j] = top_teams[j], top_teams[i]
+                head_to_head_team1 = records[team1]['head_to_head'].get(team2, 0)
+                head_to_head_team2 = records[team2]['head_to_head'].get(team1, 0)
+                if head_to_head_team1 > head_to_head_team2:
+                    # Swap the teams to ensure the winning team has a higher seed
+                    top_teams[i], top_teams[j] = top_teams[j], top_teams[i]
 
         conference_frame = afc_frame if conference == "AFC" else nfc_frame
         conference_label = ttk.Label(conference_frame, text=f"{conference} Playoff Teams", font=("Helvetica", 16))
         conference_label.pack(anchor='w')
+
         for seed, team in enumerate(top_teams, 1):
             record = records[team]
+            debug_info = f"Seed {seed}: {team} ({record['wins']}-{record['losses']})"
+            if team in records:
+                debug_info += f" H2H: {records[team]['head_to_head']}"
+            print(debug_info)  # Debug statement
+
             team_frame = ttk.Frame(conference_frame)
             team_frame.pack(anchor='w', padx=40)
             team_logo = team_logos.get(team)
