@@ -172,11 +172,11 @@ def apply_tiebreakers(teams):
     def head_to_head_record(team1, team2):
         return records[team1]['outcomes'].get(team2, {'wins': 0, 'losses': 0})['wins']
 
-    return teams[:4] + sorted(
-        teams[4:],
-        key=lambda t: (records[t]['wins'], sum(head_to_head_record(t, o) for o in teams if o != t)),
-        reverse=True
-    )
+    def sort_teams(tiebreaker_teams):
+        return sorted(tiebreaker_teams, key=lambda t: (records[t]['wins'], head_to_head_record(t, tiebreaker_teams[0])), reverse=True)
+
+    conference_sorted_teams = sort_teams(teams)
+    return conference_sorted_teams
 
 def update_playoff_predictor():
     for widget in playoff_predictor_frame.winfo_children():
@@ -227,7 +227,7 @@ def update_playoff_predictor():
         for seed, team in enumerate(top_teams, 1):
             record = records[team]
             debug_info = f"Seed {seed}: {team} ({record['wins']}-{record['losses']})\n"
-            debug_info += f"Wins: {record['wins']} against {[game['team2'] for game in games if game['team1'] == team and game['winner'] == team] + [game['team1'] for game in games if game['team2'] == team and game['winner'] == team]}\n"
+            debug_info += f"Wins: {record['wins']} against {[game['team2'] for game in games if game['team1'] == team and game['winner'] == team] + [game['team1'] for game in games if game['team2'] == team and game['winner'] == team]}"
             debug_info += f"Losses: {record['losses']} against {[game['team2'] for game in games if game['team1'] == team and game['winner'] != team] + [game['team1'] for game in games if game['team2'] == team and game['winner'] != team]}"
             debug_info += f" H2H: {records[team]['head_to_head']}"
             print(debug_info)  # Debug statement
