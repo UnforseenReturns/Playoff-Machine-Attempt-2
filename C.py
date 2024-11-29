@@ -25,8 +25,9 @@ for team in teams:
     else:
         print(f"Logo not found for {team['name']}")
 
-# Compute win/loss records
-records = {team['name']: {'wins': 0, 'losses': 0, 'head_to_head': {}} for team in teams}
+# Initialize records with nested dictionaries for head-to-head outcomes
+records = {team['name']: {'wins': 0, 'losses': 0, 'head_to_head': {}, 'outcomes': {}} for team in teams}
+
 for game in games:
     if game['winner']:
         if game['winner'] == game['team1']:
@@ -36,8 +37,7 @@ for game in games:
             records[game['team1']]['losses'] += 1
             records[game['team2']]['wins'] += 1
 
-    # Update head-to-head
-    if game['winner']:
+        # Update head-to-head
         if game['team1'] in records[game['team2']]['head_to_head']:
             records[game['team2']]['head_to_head'][game['team1']] += 1
         else:
@@ -47,6 +47,19 @@ for game in games:
             records[game['team1']]['head_to_head'][game['team2']] += 1
         else:
             records[game['team1']]['head_to_head'][game['team2']] = 1
+
+        # Record the outcome of the game
+        if game['team1'] not in records[game['team2']]['outcomes']:
+            records[game['team2']]['outcomes'][game['team1']] = {'wins': 0, 'losses': 0}
+        if game['team2'] not in records[game['team1']]['outcomes']:
+            records[game['team1']]['outcomes'][game['team2']] = {'wins': 0, 'losses': 0}
+
+        if game['winner'] == game['team1']:
+            records[game['team1']]['outcomes'][game['team2']]['wins'] += 1
+            records[game['team2']]['outcomes'][game['team1']]['losses'] += 1
+        else:
+            records[game['team2']]['outcomes'][game['team1']]['wins'] += 1
+            records[game['team1']]['outcomes'][game['team2']]['losses'] += 1
 
 # Define the grid layout
 root.columnconfigure(0, weight=1)
