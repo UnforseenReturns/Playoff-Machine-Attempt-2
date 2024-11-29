@@ -215,9 +215,10 @@ def update_playoff_predictor():
 
         for seed, team in enumerate(top_teams, 1):
             record = records[team]
-            debug_info = f"Seed {seed}: {team} ({record['wins']}-{record['losses']})"
-            if team in records:
-                debug_info += f" H2H: {records[team]['head_to_head']}"
+            debug_info = f"Seed {seed}: {team} ({record['wins']}-{record['losses']})\n"
+            debug_info += f"Wins: {record['wins']} against {[game['team2'] for game in games if game['team1'] == team and game['winner'] == team] + [game['team1'] for game in games if game['team2'] == team and game['winner'] == team]}\n"
+            debug_info += f"Losses: {record['losses']} against {[game['team2'] for game in games if game['team1'] == team and game['winner'] != team] + [game['team1'] for game in games if game['team2'] == team and game['winner'] != team]}\n"
+            debug_info += f" H2H: {records[team]['head_to_head']}"
             print(debug_info)  # Debug statement
 
             team_frame = ttk.Frame(conference_frame)
