@@ -173,7 +173,14 @@ def apply_tiebreakers(teams):
         return records[team1]['outcomes'].get(team2, {'wins': 0, 'losses': 0})['wins']
 
     def sort_teams(tiebreaker_teams):
-        return sorted(tiebreaker_teams, key=lambda t: (records[t]['wins'], head_to_head_record(t, tiebreaker_teams[0])), reverse=True)
+        sorted_teams = sorted(tiebreaker_teams, key=lambda t: (records[t]['wins'],), reverse=True)
+        
+        for i in range(len(sorted_teams) - 1):
+            for j in range(i + 1, len(sorted_teams)):
+                if head_to_head_record(sorted_teams[j], sorted_teams[i]) > 0:
+                    sorted_teams[i], sorted_teams[j] = sorted_teams[j], sorted_teams[i]
+        
+        return sorted_teams
 
     return sort_teams(teams)
 
