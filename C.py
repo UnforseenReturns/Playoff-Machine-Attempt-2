@@ -26,7 +26,7 @@ for team in teams:
         print(f"Logo not found for {team['name']}")
 
 # Initialize records with nested dictionaries for head-to-head outcomes
-records = {team['name']: {'wins': 0, 'losses': 0, 'head_to_head': {}, 'outcomes': {}} for team in teams}
+records = {team['name']: {'wins': 0, 'losses': 0, 'head_to_head': {}, 'outcomes': {}, 'division_wins': 0} for team in teams}
 
 for game in games:
     if game['winner']:
@@ -60,6 +60,13 @@ for game in games:
         else:
             records[game['team2']]['outcomes'][game['team1']]['wins'] += 1
             records[game['team1']]['outcomes'][game['team2']]['losses'] += 1
+
+        # Update division wins
+        if 'division_game' in game and game['division_game']:
+            if game['winner'] == game['team1']:
+                records[game['team1']]['division_wins'] += 1
+            else:
+                records[game['team2']]['division_wins'] += 1
 
 # Define the grid layout
 root.columnconfigure(0, weight=1)
@@ -173,7 +180,7 @@ def apply_tiebreakers(teams):
         return records[team1]['outcomes'].get(team2, {'wins': 0, 'losses': 0})['wins']
 
     def sort_teams(tiebreaker_teams):
-        sorted_teams = sorted(tiebreaker_teams, key=lambda t: (records[t]['wins'],), reverse=True)
+        sorted_teams = sorted(tiebreaker_teams, key=lambda t: (records[t]['wins'], records[t]['division_wins']), reverse=True)
         
         for i in range(len(sorted_teams) - 1):
             for j in range(i + 1, len(sorted_teams)):
