@@ -162,7 +162,7 @@ ttk.Label(playoff_predictor_frame, text="Playoff Predictor").pack()
 
 def apply_tiebreakers(teams):
     # Sort by head-to-head
-    return sorted(teams, key=lambda t: records[t]['head_to_head'], reverse=True)
+    return sorted(teams, key=lambda t: sum(records[t]['head_to_head'].values()), reverse=True)
 
 def update_playoff_predictor():
     for widget in playoff_predictor_frame.winfo_children():
