@@ -97,10 +97,6 @@ for game in games:
         label_winner.image = winner_logo  # Keep a reference to avoid garbage collection
         label_winner.pack(side=tk.LEFT)
         
-# Result Updater
-result_updater_frame = ttk.Frame(root, padding="10")
-result_updater_frame.grid(row=0, column=1, sticky="nsew")
-ttk.Label(result_updater_frame, text="Result Updater").pack()
 
 # Standings Display
 standings_display_frame = ttk.Frame(root, padding="10")
@@ -108,6 +104,7 @@ standings_display_frame.grid(row=2, column=1, sticky="nsew")
 
 # Function to update standings
 def update_standings():
+    print("Updating standings...")
     for widget in standings_display_frame.winfo_children():
         widget.destroy()
     ttk.Label(standings_display_frame, text="Standings Display").pack()
@@ -128,6 +125,7 @@ def update_standings():
             division_label.pack(anchor='w', padx=20)
             for team in division_teams:
                 record = records[team]
+                print(f"{team}: {record['wins']}-{record['losses']}")
                 team_label = ttk.Label(standings_display_frame, text=f"{team}: {record['wins']}-{record['losses']}")
                 team_label.pack(anchor='w', padx=40)
 
