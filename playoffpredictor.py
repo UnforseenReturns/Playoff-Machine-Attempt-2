@@ -155,16 +155,22 @@ def update_playoff_predictor():
         conference = team["conference"]
         conferences[conference].append(team["name"])
 
+    afc_frame = ttk.Frame(playoff_predictor_frame)
+    afc_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+    nfc_frame = ttk.Frame(playoff_predictor_frame)
+    nfc_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
+
     for conference, conference_teams in conferences.items():
         # Sort teams by wins in descending order
         sorted_teams = sorted(conference_teams, key=lambda t: records[t]['wins'], reverse=True)
         top_teams = sorted_teams[:7]
-        conference_label = ttk.Label(playoff_predictor_frame, text=f"{conference} Playoff Teams", font=("Helvetica", 16))
+        conference_frame = afc_frame if conference == "AFC" else nfc_frame
+        conference_label = ttk.Label(conference_frame, text=f"{conference} Playoff Teams", font=("Helvetica", 16))
         conference_label.pack(anchor='w')
         for seed, team in enumerate(top_teams, 1):
             record = records[team]
-            team_label = ttk.Label(playoff_predictor_frame, text=f"Seed {seed}: {team} ({record['wins']}-{record['losses']})")
-            team_label.pack(anchor='w')
+            team_label = ttk.Label(conference_frame, text=f"Seed {seed}: {team} ({record['wins']}-{record['losses']})")
+            team_label.pack(anchor='w', padx=40)
 
 update_playoff_predictor()
 
