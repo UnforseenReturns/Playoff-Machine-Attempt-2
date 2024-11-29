@@ -26,7 +26,7 @@ for team in teams:
         print(f"Logo not found for {team['name']}")
 
 # Compute win/loss records
-records = {team['name']: {'wins': 0, 'losses': 0, 'points_for': 0, 'points_against': 0, 'head_to_head': {}} for team in teams}
+records = {team['name']: {'wins': 0, 'losses': 0, 'head_to_head': {}} for team in teams}
 for game in games:
     if game['winner']:
         if game['winner'] == game['team1']:
@@ -35,12 +35,6 @@ for game in games:
         else:
             records[game['team1']]['losses'] += 1
             records[game['team2']]['wins'] += 1
-
-    # Update points for and against
-    records[game['team1']]['points_for'] += game['team1_score']
-    records[game['team1']]['points_against'] += game['team2_score']
-    records[game['team2']]['points_for'] += game['team2_score']
-    records[game['team2']]['points_against'] += game['team1_score']
 
     # Update head-to-head
     if game['winner']:
@@ -163,10 +157,7 @@ ttk.Label(playoff_predictor_frame, text="Playoff Predictor").pack()
 
 def apply_tiebreakers(teams):
     # Sort by head-to-head
-    teams = sorted(teams, key=lambda t: records[t]['head_to_head'], reverse=True)
-    # Sort by point differential (points for - points against)
-    teams = sorted(teams, key=lambda t: (records[t]['points_for'] - records[t]['points_against']), reverse=True)
-    return teams
+    return sorted(teams, key=lambda t: records[t]['head_to_head'], reverse=True)
 
 def update_playoff_predictor():
     for widget in playoff_predictor_frame.winfo_children():
