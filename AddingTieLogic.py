@@ -156,11 +156,8 @@ playoff_predictor_frame.grid(row=0, column=1, sticky="nsew")
 ttk.Label(playoff_predictor_frame, text="Playoff Predictor").pack()
 
 def apply_tiebreakers(teams):
-    # Sort by head-to-head record
-    def head_to_head_record(team):
-        return sum(records[team]['head_to_head'].values())
-    
-    return sorted(teams, key=head_to_head_record, reverse=True)
+    # Sort by head-to-head
+    return sorted(teams, key=lambda t: records[t]['head_to_head'], reverse=True)
 
 def update_playoff_predictor():
     for widget in playoff_predictor_frame.winfo_children():
@@ -178,11 +175,39 @@ def update_playoff_predictor():
     nfc_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
 
     for conference, conference_teams in conferences.items():
-        # Sort teams by wins in descending order
-        sorted_teams = sorted(conference_teams, key=lambda t: records[t]['wins'], reverse=True)
-        # Apply tiebreakers
-        sorted_teams = apply_tiebreakers(sorted_teams)
-        top_teams = sorted_teams[:7]
+        # Sort teams by wins in descending order within each division
+        divisions = {}
+        for team in conference_teams:
+            division = next(t['division'] for t in teams if t['name'] == team)
+            if division not in divisions:
+                divisions[division] = []
+            divisions[division].append(team)
+
+        top_division_teams = []
+        for division, division_teams in divisions.items():
+            sorted_division_teams = sorted(division_teams, key=lambda t: records[t]['wins'], reverse=True)
+            top_division_teams.append(sorted_division_teams[0])
+
+        # Sort top division teams by wins
+        sorted_top_division_teams = sorted(top_division_teams, key=lambda t: records[t]['wins'], reverse=True)
+
+        # Sort remaining teams by wins excluding top division teams
+        remaining_teams = [team for team in conference_teams if team not in sorted_top_division_teams]
+        sorted_remaining_teams = sorted(remaining_teams, key=lambda t: records[t]['wins'], reverse=True)
+
+        # Combine top division teams and remaining teams to get top 7 teams
+        top_teams = sorted_top_division_teams + sorted_remaining_teams[:3]
+
+        # Check if teams in Seeds 5 through 7 have played against each other
+        for i in range(4, len(top_teams)):
+            for j in range(i + 1, len(top_teams)):
+                team1 = top_teams[i]
+                team2 = top_teams[j]
+                if team1 in records[team2]['head_to_head']:
+                    if records[team2]['head_to_head'][team1] > records[team1]['head_to_head'][team2]:
+                        # Swap the teams to ensure the winning team has a higher seed
+                        top_teams[i], top_teams[j] = top_teams[j], top_teams[i]
+
         conference_frame = afc_frame if conference == "AFC" else nfc_frame
         conference_label = ttk.Label(conference_frame, text=f"{conference} Playoff Teams", font=("Helvetica", 16))
         conference_label.pack(anchor='w')
