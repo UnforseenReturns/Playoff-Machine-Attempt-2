@@ -26,7 +26,7 @@ for team in teams:
         print(f"Logo not found for {team['name']}")
 
 # Compute win/loss records
-records = {team['name']: {'wins': 0, 'losses': 0, 'head_to_head': {}} for team in teams}
+records = {team['name']: {'wins': 0, 'losses': 0, 'head_to_head': {}, 'division_wins': 0} for team in teams}
 for game in games:
     if game['winner']:
         if game['winner'] == game['team1']:
@@ -35,6 +35,11 @@ for game in games:
         else:
             records[game['team1']]['losses'] += 1
             records[game['team2']]['wins'] += 1
+
+        # Update division wins
+        if game.get('division_game'):
+            records[game['team1']]['division_wins'] += 1
+            records[game['team2']]['division_wins'] += 1
 
     # Update head-to-head
     if game['winner']:
