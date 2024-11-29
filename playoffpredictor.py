@@ -150,11 +150,9 @@ def update_playoff_predictor():
         widget.destroy()
     ttk.Label(playoff_predictor_frame, text="Playoff Predictor").pack()
 
-    conferences = {"AFC": {}, "NFC": {}}
+    conferences = {"AFC": [], "NFC": []}
     for team in teams:
         conference = team["conference"]
-        if conference not in conferences:
-            conferences[conference] = []
         conferences[conference].append(team["name"])
 
     for conference, conference_teams in conferences.items():
