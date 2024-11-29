@@ -163,12 +163,14 @@ def update_standings():
 
 update_standings()
 
+# Playoff Predictor
+playoff_predictor_frame = ttk.Frame(root, padding="10")
+playoff_predictor_frame.grid(row=0, column=1, sticky="nsew")
+ttk.Label(playoff_predictor_frame, text="Playoff Predictor").pack()
+
 def apply_tiebreakers(teams):
-    # Sort by head-to-head outcomes
-    def head_to_head_record(team1, team2):
-        return records[team1]['outcomes'].get(team2, {'wins': 0, 'losses': 0})['wins']
-    
-    return sorted(teams, key=lambda t: (records[t]['wins'], sum(head_to_head_record(t, o) for o in teams if o != t)), reverse=True)
+    # Sort by head-to-head
+    return sorted(teams, key=lambda t: records[t]['head_to_head'], reverse=True)
 
 def update_playoff_predictor():
     for widget in playoff_predictor_frame.winfo_children():
@@ -214,8 +216,8 @@ def update_playoff_predictor():
             for j in range(i + 1, 7):
                 team1 = top_teams[i]
                 team2 = top_teams[j]
-                head_to_head_team1 = records[team1]['outcomes'].get(team2, {'wins': 0, 'losses': 0})['wins']
-                head_to_head_team2 = records[team2]['outcomes'].get(team1, {'wins': 0, 'losses': 0})['wins']
+                head_to_head_team1 = records[team1]['head_to_head'].get(team2, 0)
+                head_to_head_team2 = records[team2]['head_to_head'].get(team1, 0)
                 if head_to_head_team1 > head_to_head_team2:
                     # Swap the teams to ensure the winning team has a higher seed
                     top_teams[i], top_teams[j] = top_teams[j], top_teams[i]
@@ -226,6 +228,12 @@ def update_playoff_predictor():
 
         for seed, team in enumerate(top_teams, 1):
             record = records[team]
+            debug_info = f"Seed {seed}: {team} ({record['wins']}-{record['losses']})\n"
+            debug_info += f"Wins: {record['wins']} against {[game['team2'] for game in games if game['team1'] == team and game['winner'] == team] + [game['team1'] for game in games if game['team2'] == team and game['winner'] == team]}\n"
+            debug_info += f"Losses: {record['losses']} against {[game['team2'] for game in games if game['team1'] == team and game['winner'] != team] + [game['team1'] for game in games if game['team2'] == team and game['winner'] != team]}"
+            debug_info += f" H2H: {records[team]['head_to_head']}"
+            print(debug_info)  # Debug statement
+
             team_frame = ttk.Frame(conference_frame)
             team_frame.pack(anchor='w', padx=40)
             team_logo = team_logos.get(team)
