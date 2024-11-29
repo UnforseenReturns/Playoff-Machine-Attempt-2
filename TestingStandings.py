@@ -4,6 +4,10 @@ from PIL import Image, ImageTk  # You need to install Pillow for image handling
 import json
 import os
 
+# Create the main window
+root = tk.Tk()
+root.title("Playoff Machine")
+
 # Load JSON data
 with open('teams.json') as f:
     data = json.load(f)
@@ -30,10 +34,6 @@ for game in games:
     else:
         records[game['team1']]['losses'] += 1
         records[game['team2']]['wins'] += 1
-
-# Create the main window
-root = tk.Tk()
-root.title("Playoff Machine")
 
 # Define the grid layout
 root.columnconfigure(0, weight=1)
@@ -105,7 +105,6 @@ ttk.Label(result_updater_frame, text="Result Updater").pack()
 # Standings Display
 standings_display_frame = ttk.Frame(root, padding="10")
 standings_display_frame.grid(row=2, column=1, sticky="nsew")
-ttk.Label(standings_display_frame, text="Standings Display").pack()
 
 # Function to update standings
 def update_standings():
