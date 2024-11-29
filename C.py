@@ -172,8 +172,8 @@ def apply_tiebreakers(teams):
     def head_to_head_record(team1, team2):
         return records[team1]['outcomes'].get(team2, {'wins': 0, 'losses': 0})['wins']
 
-    return sorted(
-        teams,
+    return teams[:4] + sorted(
+        teams[4:],
         key=lambda t: (records[t]['wins'], sum(head_to_head_record(t, o) for o in teams if o != t)),
         reverse=True
     )
