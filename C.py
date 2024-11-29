@@ -198,16 +198,6 @@ def update_playoff_predictor():
         # Combine top division teams and remaining teams to get top 7 teams
         top_teams = sorted_top_division_teams + sorted_remaining_teams[:3]
 
-        # Check if teams in Seeds 5 through 7 have played against each other
-        for i in range(4, len(top_teams)):
-            for j in range(i + 1, len(top_teams)):
-                team1 = top_teams[i]
-                team2 = top_teams[j]
-                if team1 in records[team2]['head_to_head']:
-                    if records[team2]['head_to_head'][team1] > records[team1]['head_to_head'][team2]:
-                        # Swap the teams to ensure the winning team has a higher seed
-                        top_teams[i], top_teams[j] = top_teams[j], top_teams[i]
-
         # Apply the logic for teams 5, 6, and 7 based on head-to-head matchups
         for i in range(4, 7):
             for j in range(i + 1, 7):
