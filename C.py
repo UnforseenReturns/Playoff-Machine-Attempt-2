@@ -169,8 +169,14 @@ playoff_predictor_frame.grid(row=0, column=1, sticky="nsew")
 ttk.Label(playoff_predictor_frame, text="Playoff Predictor").pack()
 
 def apply_tiebreakers(teams):
-    # Sort by head-to-head
-    return sorted(teams, key=lambda t: records[t]['head_to_head'], reverse=True)
+    def head_to_head_record(team1, team2):
+        return records[team1]['outcomes'].get(team2, {'wins': 0, 'losses': 0})['wins']
+
+    return sorted(
+        teams,
+        key=lambda t: (records[t]['wins'], sum(head_to_head_record(t, o) for o in teams if o != t)),
+        reverse=True
+    )
 
 def update_playoff_predictor():
     for widget in playoff_predictor_frame.winfo_children():
@@ -212,15 +218,7 @@ def update_playoff_predictor():
         top_teams = sorted_top_division_teams + sorted_remaining_teams[:3]
 
         # Apply the logic for teams 5, 6, and 7 based on head-to-head matchups
-        for i in range(4, 7):
-            for j in range(i + 1, 7):
-                team1 = top_teams[i]
-                team2 = top_teams[j]
-                head_to_head_team1 = records[team1]['head_to_head'].get(team2, 0)
-                head_to_head_team2 = records[team2]['head_to_head'].get(team1, 0)
-                if head_to_head_team1 > head_to_head_team2:
-                    # Swap the teams to ensure the winning team has a higher seed
-                    top_teams[i], top_teams[j] = top_teams[j], top_teams[i]
+        top_teams = apply_tiebreakers(top_teams)
 
         conference_frame = afc_frame if conference == "AFC" else nfc_frame
         conference_label = ttk.Label(conference_frame, text=f"{conference} Playoff Teams", font=("Helvetica", 16))
