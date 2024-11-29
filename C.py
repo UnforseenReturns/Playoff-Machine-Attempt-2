@@ -208,6 +208,16 @@ def update_playoff_predictor():
                         # Swap the teams to ensure the winning team has a higher seed
                         top_teams[i], top_teams[j] = top_teams[j], top_teams[i]
 
+        # Apply the logic for teams 5, 6, and 7 based on head-to-head matchups
+        for i in range(4, 7):
+            for j in range(i + 1, 7):
+                team1 = top_teams[i]
+                team2 = top_teams[j]
+                if team2 in records[team1]['head_to_head']:
+                    if records[team1]['head_to_head'][team2] > records[team2]['head_to_head'][team1]:
+                        # Swap the teams to ensure the winning team has a higher seed
+                        top_teams[i], top_teams[j] = top_teams[j], top_teams[i]
+
         conference_frame = afc_frame if conference == "AFC" else nfc_frame
         conference_label = ttk.Label(conference_frame, text=f"{conference} Playoff Teams", font=("Helvetica", 16))
         conference_label.pack(anchor='w')
