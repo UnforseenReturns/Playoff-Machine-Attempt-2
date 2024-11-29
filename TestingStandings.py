@@ -10,16 +10,26 @@ with open('teams.json') as f:
 teams = data['teams']
 games = data['games']
 
-# Function to load team logos
-def load_logo(team_name):
-    logo_path = os.path.join('logos', f"{team_name}.png")
+# Preload team logos
+team_logos = {}
+for team in teams:
+    logo_path = os.path.join('logos', f"{team['name']}.png")
     if os.path.exists(logo_path):
-        print(f"Loading logo for {team_name} from {logo_path}")
         image = Image.open(logo_path)
         image = image.resize((50, 50), Image.LANCZOS)  # Updated to Image.LANCZOS
-        return ImageTk.PhotoImage(image)
-    print(f"Logo not found for {team_name}")
-    return None
+        team_logos[team['name']] = ImageTk.PhotoImage(image)
+    else:
+        print(f"Logo not found for {team['name']}")
+
+# Compute win/loss records
+records = {team['name']: {'wins': 0, 'losses': 0} for team in teams}
+for game in games:
+    if game['winner'] == game['team1']:
+        records[game['team1']]['wins'] += 1
+        records[game['team2']]['losses'] += 1
+    else:
+        records[game['team1']]['losses'] += 1
+        records[game['team2']]['wins'] += 1
 
 # Create the main window
 root = tk.Tk()
@@ -30,6 +40,7 @@ root.columnconfigure(0, weight=1)
 root.columnconfigure(1, weight=1)
 root.rowconfigure(0, weight=1)
 root.rowconfigure(1, weight=1)
+root.rowconfigure(2, weight=1)
 
 # Notebook (tabs)
 notebook = ttk.Notebook(root)
@@ -37,7 +48,6 @@ notebook.grid(row=0, column=0, columnspan=2, rowspan=3, sticky="nsew")
 
 # Create a dictionary to hold the frames for each week
 week_frames = {}
-team_logos = {}
 
 # Count the number of games for each week
 weeks = {}
@@ -59,9 +69,9 @@ for game in games:
         week_label = ttk.Label(frame, text=f"Number of games in Week {week}: {weeks[week]}")
         week_label.pack(anchor='w')
 
-    team1_logo = load_logo(game['team1'])
-    team2_logo = load_logo(game['team2'])
-    winner_logo = load_logo(game['winner'])
+    team1_logo = team_logos.get(game['team1'])
+    team2_logo = team_logos.get(game['team2'])
+    winner_logo = team_logos.get(game['winner'])
 
     game_frame = ttk.Frame(week_frames[week])
     game_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=5)
@@ -87,15 +97,46 @@ for game in games:
         label_winner.image = winner_logo  # Keep a reference to avoid garbage collection
         label_winner.pack(side=tk.LEFT)
         
+# Result Updater
+result_updater_frame = ttk.Frame(root, padding="10")
+result_updater_frame.grid(row=0, column=1, sticky="nsew")
+ttk.Label(result_updater_frame, text="Result Updater").pack()
 
 # Standings Display
 standings_display_frame = ttk.Frame(root, padding="10")
-standings_display_frame.grid(row=1, column=1, sticky="nsew")
+standings_display_frame.grid(row=2, column=1, sticky="nsew")
 ttk.Label(standings_display_frame, text="Standings Display").pack()
+
+# Function to update standings
+def update_standings():
+    for widget in standings_display_frame.winfo_children():
+        widget.destroy()
+    ttk.Label(standings_display_frame, text="Standings Display").pack()
+    
+    conferences = {"AFC": {}, "NFC": {}}
+    for team in teams:
+        conference = team["conference"]
+        division = team["division"]
+        if division not in conferences[conference]:
+            conferences[conference][division] = []
+        conferences[conference][division].append(team["name"])
+    
+    for conference, divisions in conferences.items():
+        conference_label = ttk.Label(standings_display_frame, text=conference, font=("Helvetica", 16))
+        conference_label.pack(anchor='w')
+        for division, division_teams in divisions.items():
+            division_label = ttk.Label(standings_display_frame, text=division, font=("Helvetica", 14))
+            division_label.pack(anchor='w', padx=20)
+            for team in division_teams:
+                record = records[team]
+                team_label = ttk.Label(standings_display_frame, text=f"{team}: {record['wins']}-{record['losses']}")
+                team_label.pack(anchor='w', padx=40)
+
+update_standings()
 
 # Playoff Predictor
 playoff_predictor_frame = ttk.Frame(root, padding="10")
-playoff_predictor_frame.grid(row=0, column=1, sticky="nsew")
+playoff_predictor_frame.grid(row=1, column=1, sticky="nsew")
 ttk.Label(playoff_predictor_frame, text="Playoff Predictor").pack()
 
 # Run the application
