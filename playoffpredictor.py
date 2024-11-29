@@ -46,7 +46,7 @@ root.rowconfigure(2, weight=1)
 
 # Notebook (tabs)
 notebook = ttk.Notebook(root)
-notebook.grid(row=0, column=0, columnspan=2, rowspan=2, sticky="nsew")
+notebook.grid(row=0, column=0, columnspan=2, rowspan=3, sticky="nsew")
 
 # Create a dictionary to hold the frames for each week
 week_frames = {}
@@ -144,6 +144,31 @@ update_standings()
 playoff_predictor_frame = ttk.Frame(root, padding="10")
 playoff_predictor_frame.grid(row=0, column=1, sticky="nsew")
 ttk.Label(playoff_predictor_frame, text="Playoff Predictor").pack()
+
+def update_playoff_predictor():
+    for widget in playoff_predictor_frame.winfo_children():
+        widget.destroy()
+    ttk.Label(playoff_predictor_frame, text="Playoff Predictor").pack()
+
+    conferences = {"AFC": {}, "NFC": {}}
+    for team in teams:
+        conference = team["conference"]
+        if conference not in conferences:
+            conferences[conference] = []
+        conferences[conference].append(team["name"])
+
+    for conference, conference_teams in conferences.items():
+        # Sort teams by wins in descending order
+        sorted_teams = sorted(conference_teams, key=lambda t: records[t]['wins'], reverse=True)
+        top_teams = sorted_teams[:7]
+        conference_label = ttk.Label(playoff_predictor_frame, text=f"{conference} Playoff Teams", font=("Helvetica", 16))
+        conference_label.pack(anchor='w')
+        for seed, team in enumerate(top_teams, 1):
+            record = records[team]
+            team_label = ttk.Label(playoff_predictor_frame, text=f"Seed {seed}: {team} ({record['wins']}-{record['losses']})")
+            team_label.pack(anchor='w')
+
+update_playoff_predictor()
 
 # Run the application
 root.mainloop()
