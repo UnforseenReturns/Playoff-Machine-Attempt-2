@@ -388,10 +388,10 @@ def clear_all_winners():
     # Save the updated game data
     save_game_data('games.json', {'teams': teams, 'games': games})
 
-    # Restart the script
-    root.destroy()  # Close the current Tkinter window
-    python = sys.executable
-    os.execl(python, python, *sys.argv)
+    # Update the UI and reinitialize data
+    update_standings()
+    update_playoff_predictor()
+    root.update_idletasks()  # Force update of the window
     
     # Add a button to clear all winners
 clear_winners_button = ttk.Button(root, text="Clear All Winners", command=clear_all_winners)
