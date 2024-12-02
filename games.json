@@ -166,7 +166,7 @@
             "team1": "Baltimore Ravens",
             "team2": "Kansas City Chiefs",
             "week": 1,
-            "winner": "Baltimore Ravens"
+            "winner": null
         },
         {
             "team1": "Green Bay Packers",

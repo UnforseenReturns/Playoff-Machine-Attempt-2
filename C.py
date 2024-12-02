@@ -3,6 +3,8 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 import os
 from data_manager import load_game_data, save_game_data
+import sys
+import subprocess
 
 # Create the main window
 root = tk.Tk()
@@ -347,6 +349,53 @@ def update_playoff_predictor():
             team_label.pack(side=tk.LEFT)
 
 update_playoff_predictor()
+
+def clear_all_winners():
+    for game in games:
+        previous_winner = game.get('winner')
+        if previous_winner:
+            if previous_winner == game['team1']:
+                records[game['team1']]['wins'] -= 1
+                records[game['team2']]['losses'] -= 1
+            else:
+                records[game['team1']]['losses'] -= 1
+                records[game['team2']]['wins'] -= 1
+
+            # Update head-to-head
+            if game['team1'] in records[game['team2']]['head_to_head']:
+                records[game['team2']]['head_to_head'][game['team1']] -= 1
+            if game['team2'] in records[game['team1']]['head_to_head']:
+                records[game['team1']]['head_to_head'][game['team2']] -= 1
+
+            # Record the outcome of the game
+            if previous_winner == game['team1']:
+                records[game['team1']]['outcomes'][game['team2']]['wins'] -= 1
+                records[game['team2']]['outcomes'][game['team1']]['losses'] -= 1
+            else:
+                records[game['team2']]['outcomes'][game['team1']]['wins'] -= 1
+                records[game['team1']]['outcomes'][game['team2']]['losses'] -= 1
+
+            # Update division wins
+            if 'division_game' in game and game['division_game']:
+                if previous_winner == game['team1']:
+                    records[game['team1']]['division_wins'] -= 1
+                else:
+                    records[game['team2']]['division_wins'] -= 1
+
+            # Clear the winner
+            game['winner'] = None
+
+    # Save the updated game data
+    save_game_data('games.json', {'teams': teams, 'games': games})
+
+    # Restart the script
+    root.destroy()  # Close the current Tkinter window
+    python = sys.executable
+    os.execl(python, python, *sys.argv)
+    
+    # Add a button to clear all winners
+clear_winners_button = ttk.Button(root, text="Clear All Winners", command=clear_all_winners)
+clear_winners_button.grid(row=2, column=1, sticky="e", padx=10, pady=10)
 
 # Run the application
 root.mainloop()
