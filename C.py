@@ -1,16 +1,15 @@
 import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
-import json
 import os
+from data_manager import load_game_data, save_game_data
 
 # Create the main window
 root = tk.Tk()
 root.title("Playoff Machine")
 
 # Load JSON data
-with open('teams.json') as f:
-    data = json.load(f)
+data = load_game_data('teams.json')
 teams = data['teams']
 games = data['games']
 
@@ -140,6 +139,9 @@ def update_winner(game, winner):
             records[game['team1']]['division_wins'] += 1
         else:
             records[game['team2']]['division_wins'] += 1
+
+    # Save the updated game data
+    save_game_data('games.json', {'teams': teams, 'games': games})
 
 # Define the grid layout
 root.columnconfigure(0, weight=1)
