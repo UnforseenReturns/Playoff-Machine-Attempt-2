@@ -70,6 +70,38 @@ for game in games:
 
 # Function to update game winner
 def update_winner(game, winner):
+    # Remove previous winner's stats
+    previous_winner = game.get('winner')
+    if previous_winner:
+        if previous_winner == game['team1']:
+            records[game['team1']]['wins'] -= 1
+            records[game['team2']]['losses'] -= 1
+        else:
+            records[game['team1']]['losses'] -= 1
+            records[game['team2']]['wins'] -= 1
+
+        # Update head-to-head
+        if game['team1'] in records[game['team2']]['head_to_head']:
+            records[game['team2']]['head_to_head'][game['team1']] -= 1
+        if game['team2'] in records[game['team1']]['head_to_head']:
+            records[game['team1']]['head_to_head'][game['team2']] -= 1
+
+        # Record the outcome of the game
+        if previous_winner == game['team1']:
+            records[game['team1']]['outcomes'][game['team2']]['wins'] -= 1
+            records[game['team2']]['outcomes'][game['team1']]['losses'] -= 1
+        else:
+            records[game['team2']]['outcomes'][game['team1']]['wins'] -= 1
+            records[game['team1']]['outcomes'][game['team2']]['losses'] -= 1
+
+        # Update division wins
+        if 'division_game' in game and game['division_game']:
+            if previous_winner == game['team1']:
+                records[game['team1']]['division_wins'] -= 1
+            else:
+                records[game['team2']]['division_wins'] -= 1
+
+    # Add new winner's stats
     game['winner'] = winner
     if winner == game['team1']:
         records[game['team1']]['wins'] += 1
@@ -281,16 +313,17 @@ def update_playoff_predictor():
         # Sort top division teams by wins
         sorted_top_division_teams = sorted(top_division_teams, key=lambda t: records[t]['wins'], reverse=True)
 
-        # Sort remaining teams by division wins and wins in descending order
+        # Sort remaining teams by wins in descending order
         remaining_teams = [team for team in conference_teams if team not in sorted_top_division_teams]
-        sorted_remaining_teams = sorted(remaining_teams, key=lambda t: (records[t]['division_wins'], records[t]['wins']), reverse=True)
+        sorted_remaining_teams = sorted(remaining_teams, key=lambda t: records[t]['wins'], reverse=True)
 
         # Combine top division teams and remaining teams to get top 7 teams
         top_teams = sorted_top_division_teams + sorted_remaining_teams[:3]
 
         # Apply the logic for seeds 5, 6, and 7 based on head-to-head matchups
         seeds_1_to_4 = top_teams[:4]
-        seeds_5_to_7 = apply_tiebreakers(top_teams[4:])
+        seeds_5_to_7 = sorted(top_teams[4:], key=lambda t: records[t]['wins'], reverse=True)
+        #seeds_5_to_7 = apply_tiebreakers(seeds_5_to_7)
         top_teams = seeds_1_to_4 + seeds_5_to_7
 
         conference_frame = afc_frame if conference == "AFC" else nfc_frame
