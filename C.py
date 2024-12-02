@@ -176,12 +176,17 @@ playoff_predictor_frame.grid(row=0, column=1, sticky="nsew")
 ttk.Label(playoff_predictor_frame, text="Playoff Predictor").pack()
 
 def apply_tiebreakers(teams):
+    def division_record(team):
+        return records[team]['division_wins']
+
     def head_to_head_record(team1, team2):
         return records[team1]['outcomes'].get(team2, {'wins': 0, 'losses': 0})['wins']
 
     def sort_teams(tiebreaker_teams):
-        sorted_teams = sorted(tiebreaker_teams, key=lambda t: (records[t]['wins'], records[t]['division_wins']), reverse=True)
+        # Sort by division records first
+        sorted_teams = sorted(tiebreaker_teams, key=lambda t: (records[t]['wins'], division_record(t)), reverse=True)
         
+        # Apply head-to-head tiebreaker
         for i in range(len(sorted_teams) - 1):
             for j in range(i + 1, len(sorted_teams)):
                 if head_to_head_record(sorted_teams[j], sorted_teams[i]) > 0:
@@ -242,8 +247,8 @@ def update_playoff_predictor():
         for seed, team in enumerate(top_teams, 1):
             record = records[team]
             debug_info = f"Seed {seed}: {team} ({record['wins']}-{record['losses']})\n"
-            debug_info += f"Wins: {record['wins']} against {[game['team2'] for game in games if game['team1'] == team and game['winner'] == team] + [game['team1'] for game in games if game['team2'] == team and game['winner'] == team]}"
-            debug_info += f"Losses: {record['losses']} against {[game['team2'] for game in games if game['team1'] == team and game['winner'] != team] + [game['team1'] for game in games if game['team2'] == team and game['winner'] != team]}"
+            debug_info += f"Wins: {record['wins']} against {[game['team2'] for game in games if game['team1'] == team and game['winner'] == team] + [game['team1'] for game in games if game['team2'] == team and game['winner'] == team]}\n"
+            debug_info += f"Losses: {record['losses']} against {[game['team2'] for game in games if game['team1'] == team and game['winner'] != team] + [game['team1'] for game in games if game['team2'] == team and game['winner'] != team]}\n"
             debug_info += f" H2H: {records[team]['head_to_head']}"
             print(debug_info)  # Debug statement
 
