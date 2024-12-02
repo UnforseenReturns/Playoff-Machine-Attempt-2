@@ -9,9 +9,11 @@ root = tk.Tk()
 root.title("Playoff Machine")
 
 # Load JSON data
-data = load_game_data('teams.json')
-teams = data['teams']
-games = data['games']
+team_data = load_game_data('teams.json')
+teams = team_data['teams']
+
+game_data = load_game_data('games.json')
+games = game_data['games']
 
 # Preload team logos
 team_logos = {}
