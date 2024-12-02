@@ -352,9 +352,11 @@ update_playoff_predictor()
 
 # Function to clear all winners and reset records
 def clear_all_winners():
+    print("clear_all_winners: Starting to clear all winners.")
     for game in games:
         previous_winner = game.get('winner')
         if previous_winner:
+            print(f"clear_all_winners: Clearing winner for game {game['team1']} vs {game['team2']}, previous winner: {previous_winner}")
             if previous_winner == game['team1']:
                 records[game['team1']]['wins'] -= 1
                 records[game['team2']]['losses'] -= 1
@@ -387,9 +389,11 @@ def clear_all_winners():
             game['winner'] = None
 
     # Save the updated game data
+    print("clear_all_winners: Saving updated game data.")
     save_game_data('games.json', {'teams': teams, 'games': games})
 
     # Restart the script
+    print("clear_all_winners: Restarting the script.")
     root.destroy()  # Close the current Tkinter window
     python = sys.executable
     os.execl(python, python, *sys.argv)
