@@ -3,15 +3,19 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 import os
 from data_manager import load_game_data, save_game_data
+import sys
+import subprocess
 
 # Create the main window
 root = tk.Tk()
 root.title("Playoff Machine")
 
 # Load JSON data
-data = load_game_data('teams.json')
-teams = data['teams']
-games = data['games']
+team_data = load_game_data('teams.json')
+teams = team_data['teams']
+
+game_data = load_game_data('games.json')
+games = game_data['games']
 
 # Preload team logos
 team_logos = {}
@@ -385,16 +389,14 @@ def clear_all_winners():
     # Save the updated game data
     save_game_data('games.json', {'teams': teams, 'games': games})
 
-    # Update the UI
-    update_standings()
-    update_playoff_predictor()
+    # Restart the script
+    root.destroy()  # Close the current Tkinter window
+    python = sys.executable
+    os.execl(python, python, *sys.argv)
 
 # Add a button to clear all winners
 clear_winners_button = ttk.Button(root, text="Clear All Winners", command=clear_all_winners)
 clear_winners_button.grid(row=2, column=1, sticky="e", padx=10, pady=10)
-
-# Run the application
-root.mainloop()
 
 # Run the application
 root.mainloop()
