@@ -68,6 +68,47 @@ for game in games:
             else:
                 records[game['team2']]['division_wins'] += 1
 
+# Function to update game winner
+def update_winner(game, winner):
+    game['winner'] = winner
+    if winner == game['team1']:
+        records[game['team1']]['wins'] += 1
+        records[game['team2']]['losses'] += 1
+    else:
+        records[game['team1']]['losses'] += 1
+        records[game['team2']]['wins'] += 1
+
+    # Update head-to-head
+    if game['team1'] in records[game['team2']]['head_to_head']:
+        records[game['team2']]['head_to_head'][game['team1']] += 1
+    else:
+        records[game['team2']]['head_to_head'][game['team1']] = 1
+
+    if game['team2'] in records[game['team1']]['head_to_head']:
+        records[game['team1']]['head_to_head'][game['team2']] += 1
+    else:
+        records[game['team1']]['head_to_head'][game['team2']] = 1
+
+    # Record the outcome of the game
+    if game['team1'] not in records[game['team2']]['outcomes']:
+        records[game['team2']]['outcomes'][game['team1']] = {'wins': 0, 'losses': 0}
+    if game['team2'] not in records[game['team1']]['outcomes']:
+        records[game['team1']]['outcomes'][game['team2']] = {'wins': 0, 'losses': 0}
+
+    if winner == game['team1']:
+        records[game['team1']]['outcomes'][game['team2']]['wins'] += 1
+        records[game['team2']]['outcomes'][game['team1']]['losses'] += 1
+    else:
+        records[game['team2']]['outcomes'][game['team1']]['wins'] += 1
+        records[game['team1']]['outcomes'][game['team2']]['losses'] += 1
+
+    # Update division wins
+    if 'division_game' in game and game['division_game']:
+        if winner == game['team1']:
+            records[game['team1']]['division_wins'] += 1
+        else:
+            records[game['team2']]['division_wins'] += 1
+
 # Define the grid layout
 root.columnconfigure(0, weight=1)
 root.columnconfigure(1, weight=1)
@@ -120,13 +161,25 @@ for game in games:
         label_team2.image = team2_logo
         label_team2.pack(side=tk.LEFT)
 
-    winner_label = tk.Label(game_frame, text=" - Winner: ")
-    winner_label.pack(side=tk.LEFT)
+    if game['winner']:
+        winner_label = tk.Label(game_frame, text=f" - Winner: {game['winner']}")
+        winner_label.pack(side=tk.LEFT)
+    else:
+        # Add a drop-down menu for assigning winner
+        winner_var = tk.StringVar()
+        winner_menu = ttk.Combobox(game_frame, textvariable=winner_var)
+        winner_menu['values'] = (game['team1'], game['team2'])
+        winner_menu.set('Select Winner')
+        winner_menu.pack(side=tk.LEFT)
 
-    if winner_logo:
-        label_winner = tk.Label(game_frame, image=winner_logo)
-        label_winner.image = winner_logo
-        label_winner.pack(side=tk.LEFT)
+        def set_winner(event, game=game, winner_var=winner_var):
+            selected_winner = winner_var.get()
+            if selected_winner:
+                update_winner(game, selected_winner)
+                update_standings()
+                update_playoff_predictor()
+
+        winner_menu.bind("<<ComboboxSelected>>", set_winner)
 
 # Standings Display
 standings_display_frame = ttk.Frame(root, padding="10")
@@ -228,9 +281,9 @@ def update_playoff_predictor():
         # Sort top division teams by wins
         sorted_top_division_teams = sorted(top_division_teams, key=lambda t: records[t]['wins'], reverse=True)
 
-        # Sort remaining teams by wins excluding top division teams
+        # Sort remaining teams by division wins and wins in descending order
         remaining_teams = [team for team in conference_teams if team not in sorted_top_division_teams]
-        sorted_remaining_teams = sorted(remaining_teams, key=lambda t: records[t]['wins'], reverse=True)
+        sorted_remaining_teams = sorted(remaining_teams, key=lambda t: (records[t]['division_wins'], records[t]['wins']), reverse=True)
 
         # Combine top division teams and remaining teams to get top 7 teams
         top_teams = sorted_top_division_teams + sorted_remaining_teams[:3]
@@ -246,12 +299,6 @@ def update_playoff_predictor():
 
         for seed, team in enumerate(top_teams, 1):
             record = records[team]
-            debug_info = f"Seed {seed}: {team} ({record['wins']}-{record['losses']})\n"
-            debug_info += f"Wins: {record['wins']} against {[game['team2'] for game in games if game['team1'] == team and game['winner'] == team] + [game['team1'] for game in games if game['team2'] == team and game['winner'] == team]}\n"
-            debug_info += f"Losses: {record['losses']} against {[game['team2'] for game in games if game['team1'] == team and game['winner'] != team] + [game['team1'] for game in games if game['team2'] == team and game['winner'] != team]}\n"
-            debug_info += f" H2H: {records[team]['head_to_head']}"
-            print(debug_info)  # Debug statement
-
             team_frame = ttk.Frame(conference_frame)
             team_frame.pack(anchor='w', padx=40)
             team_logo = team_logos.get(team)
