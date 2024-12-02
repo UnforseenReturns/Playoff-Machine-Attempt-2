@@ -346,5 +346,55 @@ def update_playoff_predictor():
 
 update_playoff_predictor()
 
+# Function to clear all winners and reset records
+def clear_all_winners():
+    for game in games:
+        previous_winner = game.get('winner')
+        if previous_winner:
+            if previous_winner == game['team1']:
+                records[game['team1']]['wins'] -= 1
+                records[game['team2']]['losses'] -= 1
+            else:
+                records[game['team1']]['losses'] -= 1
+                records[game['team2']]['wins'] -= 1
+
+            # Update head-to-head
+            if game['team1'] in records[game['team2']]['head_to_head']:
+                records[game['team2']]['head_to_head'][game['team1']] -= 1
+            if game['team2'] in records[game['team1']]['head_to_head']:
+                records[game['team1']]['head_to_head'][game['team2']] -= 1
+
+            # Record the outcome of the game
+            if previous_winner == game['team1']:
+                records[game['team1']]['outcomes'][game['team2']]['wins'] -= 1
+                records[game['team2']]['outcomes'][game['team1']]['losses'] -= 1
+            else:
+                records[game['team2']]['outcomes'][game['team1']]['wins'] -= 1
+                records[game['team1']]['outcomes'][game['team2']]['losses'] -= 1
+
+            # Update division wins
+            if 'division_game' in game and game['division_game']:
+                if previous_winner == game['team1']:
+                    records[game['team1']]['division_wins'] -= 1
+                else:
+                    records[game['team2']]['division_wins'] -= 1
+
+            # Clear the winner
+            game['winner'] = None
+
+    # Save the updated game data
+    save_game_data('games.json', {'teams': teams, 'games': games})
+
+    # Update the UI
+    update_standings()
+    update_playoff_predictor()
+
+# Add a button to clear all winners
+clear_winners_button = ttk.Button(root, text="Clear All Winners", command=clear_all_winners)
+clear_winners_button.grid(row=2, column=1, sticky="e", padx=10, pady=10)
+
+# Run the application
+root.mainloop()
+
 # Run the application
 root.mainloop()

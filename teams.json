@@ -76,7 +76,7 @@
 			"division": "East"
 		},
 		{
-			"name": "New Phyrexia Phyrexians",
+			"name": "New York Jets",
 			"conference": "AFC",
 			"division": "East"
 		},
@@ -1795,5 +1795,4 @@
 			"winner": null
 		}
 	]
-}
 }
