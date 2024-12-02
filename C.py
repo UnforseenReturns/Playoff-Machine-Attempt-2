@@ -4,12 +4,11 @@ from PIL import Image, ImageTk
 import os
 from data_manager import load_game_data, save_game_data
 import sys
-import subprocess
 
-# Debug statement for the start of the script
-print("Script started.")
+def restart_script():
+    print("Restarting script...")
+    main()  # Call the main function to restart the application
 
-# Function to clear all winners and reset records
 def clear_all_winners():
     print("clear_all_winners: Starting to clear all winners.")
     for game in games:
@@ -54,245 +53,250 @@ def clear_all_winners():
     # Restart the script
     print("clear_all_winners: Restarting the script.")
     root.destroy()  # Close the current Tkinter window
-    python = sys.executable
-    os.execl(python, python, *sys.argv)
-    print("clear_all_winners: Script should be restarting...")
+    restart_script()
 
-# Create the main window
-print("Creating the main Tkinter window.")
-root = tk.Tk()
-root.title("Playoff Machine")
-print("Tkinter window created.")
+def main():
+    global root, games, teams, records, team_logos
 
-# Load JSON data
-team_data = load_game_data('teams.json')
-teams = team_data['teams']
+    print("Script started.")
+    # Create the main window
+    print("Creating the main Tkinter window.")
+    root = tk.Tk()
+    root.title("Playoff Machine")
+    print("Tkinter window created.")
 
-game_data = load_game_data('games.json')
-games = game_data['games']
+    # Load JSON data
+    team_data = load_game_data('teams.json')
+    teams = team_data['teams']
 
-# Preload team logos
-team_logos = {}
-for team in teams:
-    logo_path = os.path.join('logos', f"{team['name']}.png")
-    if os.path.exists(logo_path):
-        image = Image.open(logo_path)
-        image = image.resize((50, 50), Image.LANCZOS)
-        team_logos[team['name']] = ImageTk.PhotoImage(image)
-    else:
-        print(f"Logo not found for {team['name']}")
+    game_data = load_game_data('games.json')
+    games = game_data['games']
 
-# Initialize records with nested dictionaries for head-to-head outcomes
-records = {team['name']: {'wins': 0, 'losses': 0, 'head_to_head': {}, 'outcomes': {}, 'division_wins': 0} for team in teams}
+    # Preload team logos
+    team_logos = {}
+    for team in teams:
+        logo_path = os.path.join('logos', f"{team['name']}.png")
+        if os.path.exists(logo_path):
+            image = Image.open(logo_path)
+            image = image.resize((50, 50), Image.LANCZOS)
+            team_logos[team['name']] = ImageTk.PhotoImage(image)
+        else:
+            print(f"Logo not found for {team['name']}")
 
-# Define the grid layout
-root.columnconfigure(0, weight=1)
-root.columnconfigure(1, weight=1)
-root.rowconfigure(0, weight=1)
-root.rowconfigure(1, weight=1)
-root.rowconfigure(2, weight=1)
+    # Initialize records with nested dictionaries for head-to-head outcomes
+    records = {team['name']: {'wins': 0, 'losses': 0, 'head_to_head': {}, 'outcomes': {}, 'division_wins': 0} for team in teams}
 
-# Notebook (tabs)
-notebook = ttk.Notebook(root)
-notebook.grid(row=0, column=0, columnspan=2, rowspan=3, sticky="nsew")
+    # Define the grid layout
+    root.columnconfigure(0, weight=1)
+    root.columnconfigure(1, weight=1)
+    root.rowconfigure(0, weight=1)
+    root.rowconfigure(1, weight=1)
+    root.rowconfigure(2, weight=1)
 
-# Create a dictionary to hold the frames for each week
-week_frames = {}
-weeks = {}
-for game in games:
-    week = game['week']
-    if week not in weeks:
-        weeks[week] = 0
-    weeks[week] += 1
+    # Notebook (tabs)
+    notebook = ttk.Notebook(root)
+    notebook.grid(row=0, column=0, columnspan=2, rowspan=3, sticky="nsew")
 
-# Create tabs for each week
-for game in games:
-    week = game['week']
-    if week not in week_frames:
-        frame = ttk.Frame(notebook, padding="10")
-        notebook.add(frame, text=f"Week {week}")
-        week_frames[week] = frame
+    # Create a dictionary to hold the frames for each week
+    week_frames = {}
+    weeks = {}
+    for game in games:
+        week = game['week']
+        if week not in weeks:
+            weeks[week] = 0
+        weeks[week] += 1
 
-        # Display the number of games for the week
-        week_label = ttk.Label(frame, text=f"Number of games in Week {week}: {weeks[week]}")
-        week_label.pack(anchor='w')
+    # Create tabs for each week
+    for game in games:
+        week = game['week']
+        if week not in week_frames:
+            frame = ttk.Frame(notebook, padding="10")
+            notebook.add(frame, text=f"Week {week}")
+            week_frames[week] = frame
 
-    team1_logo = team_logos.get(game['team1'])
-    team2_logo = team_logos.get(game['team2'])
-    winner_logo = team_logos.get(game['winner'])
+            # Display the number of games for the week
+            week_label = ttk.Label(frame, text=f"Number of games in Week {week}: {weeks[week]}")
+            week_label.pack(anchor='w')
 
-    game_frame = ttk.Frame(week_frames[week])
-    game_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=5)
+        team1_logo = team_logos.get(game['team1'])
+        team2_logo = team_logos.get(game['team2'])
+        winner_logo = team_logos.get(game['winner'])
 
-    if team1_logo:
-        label_team1 = tk.Label(game_frame, image=team1_logo)
-        label_team1.image = team1_logo
-        label_team1.pack(side=tk.LEFT)
+        game_frame = ttk.Frame(week_frames[week])
+        game_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=5)
 
-    vs_label = tk.Label(game_frame, text=" vs ")
-    vs_label.pack(side=tk.LEFT)
+        if team1_logo:
+            label_team1 = tk.Label(game_frame, image=team1_logo)
+            label_team1.image = team1_logo
+            label_team1.pack(side=tk.LEFT)
 
-    if team2_logo:
-        label_team2 = tk.Label(game_frame, image=team2_logo)
-        label_team2.image = team2_logo
-        label_team2.pack(side=tk.LEFT)
+        vs_label = tk.Label(game_frame, text=" vs ")
+        vs_label.pack(side=tk.LEFT)
 
-    if game['winner']:
-        winner_label = tk.Label(game_frame, text=f" - Winner: {game['winner']}")
-        winner_label.pack(side=tk.LEFT)
-    else:
-        # Add a drop-down menu for assigning winner
-        winner_var = tk.StringVar()
-        winner_menu = ttk.Combobox(game_frame, textvariable=winner_var)
-        winner_menu['values'] = (game['team1'], game['team2'])
-        winner_menu.set('Select Winner')
-        winner_menu.pack(side=tk.LEFT)
+        if team2_logo:
+            label_team2 = tk.Label(game_frame, image=team2_logo)
+            label_team2.image = team2_logo
+            label_team2.pack(side=tk.LEFT)
 
-        def set_winner(event, game=game, winner_var=winner_var):
-            selected_winner = winner_var.get()
-            if selected_winner:
-                update_winner(game, selected_winner)
-                update_standings()
-                update_playoff_predictor()
+        if game['winner']:
+            winner_label = tk.Label(game_frame, text=f" - Winner: {game['winner']}")
+            winner_label.pack(side=tk.LEFT)
+        else:
+            # Add a drop-down menu for assigning winner
+            winner_var = tk.StringVar()
+            winner_menu = ttk.Combobox(game_frame, textvariable=winner_var)
+            winner_menu['values'] = (game['team1'], game['team2'])
+            winner_menu.set('Select Winner')
+            winner_menu.pack(side=tk.LEFT)
 
-        winner_menu.bind("<<ComboboxSelected>>", set_winner)
+            def set_winner(event, game=game, winner_var=winner_var):
+                selected_winner = winner_var.get()
+                if selected_winner:
+                    update_winner(game, selected_winner)
+                    update_standings()
+                    update_playoff_predictor()
 
-# Standings Display
-standings_display_frame = ttk.Frame(root, padding="10")
-standings_display_frame.grid(row=1, column=1, sticky="nsew")
-ttk.Label(standings_display_frame, text="Standings Display").pack()
+            winner_menu.bind("<<ComboboxSelected>>", set_winner)
 
-# Function to update standings
-def update_standings():
-    for widget in standings_display_frame.winfo_children():
-        widget.destroy()
+    # Standings Display
+    standings_display_frame = ttk.Frame(root, padding="10")
+    standings_display_frame.grid(row=1, column=1, sticky="nsew")
     ttk.Label(standings_display_frame, text="Standings Display").pack()
 
-    conferences = {"AFC": {}, "NFC": {}}
-    for team in teams:
-        conference = team["conference"]
-        division = team["division"]
-        if division not in conferences[conference]:
-            conferences[conference][division] = []
-        conferences[conference][division].append(team["name"])
+    # Function to update standings
+    def update_standings():
+        for widget in standings_display_frame.winfo_children():
+            widget.destroy()
+        ttk.Label(standings_display_frame, text="Standings Display").pack()
 
-    # Create a frame for each conference
-    afc_frame = ttk.Frame(standings_display_frame)
-    afc_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-    nfc_frame = ttk.Frame(standings_display_frame)
-    nfc_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
+        conferences = {"AFC": {}, "NFC": {}}
+        for team in teams:
+            conference = team["conference"]
+            division = team["division"]
+            if division not in conferences[conference]:
+                conferences[conference][division] = []
+            conferences[conference][division].append(team["name"])
 
-    for conference, divisions in conferences.items():
-        conference_frame = afc_frame if conference == "AFC" else nfc_frame
-        conference_label = ttk.Label(conference_frame, text=conference, font=("Helvetica", 16))
-        conference_label.pack(anchor='w')
-        for division, division_teams in divisions.items():
-            division_label = ttk.Label(conference_frame, text=division, font=("Helvetica", 14))
-            division_label.pack(anchor='w', padx=20)
+        # Create a frame for each conference
+        afc_frame = ttk.Frame(standings_display_frame)
+        afc_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        nfc_frame = ttk.Frame(standings_display_frame)
+        nfc_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
 
-            # Sort teams by wins in descending order
-            sorted_teams = sorted(division_teams, key=lambda t: records[t]['wins'], reverse=True)
-            for team in sorted_teams:
-                record = records[team]
-                team_label = ttk.Label(conference_frame, text=f"{team}: {record['wins']}-{record['losses']}")
-                team_label.pack(anchor='w', padx=40)
+        for conference, divisions in conferences.items():
+            conference_frame = afc_frame if conference == "AFC" else nfc_frame
+            conference_label = ttk.Label(conference_frame, text=conference, font=("Helvetica", 16))
+            conference_label.pack(anchor='w')
+            for division, division_teams in divisions.items():
+                division_label = ttk.Label(conference_frame, text=division, font=("Helvetica", 14))
+                division_label.pack(anchor='w', padx=20)
 
-update_standings()
+                # Sort teams by wins in descending order
+                sorted_teams = sorted(division_teams, key=lambda t: records[t]['wins'], reverse=True)
+                for team in sorted_teams:
+                    record = records[team]
+                    team_label = ttk.Label(conference_frame, text=f"{team}: {record['wins']}-{record['losses']}")
+                    team_label.pack(anchor='w', padx=40)
 
-# Playoff Predictor
-playoff_predictor_frame = ttk.Frame(root, padding="10")
-playoff_predictor_frame.grid(row=0, column=1, sticky="nsew")
-ttk.Label(playoff_predictor_frame, text="Playoff Predictor").pack()
+    update_standings()
 
-def apply_tiebreakers(teams):
-    def division_record(team):
-        return records[team]['division_wins']
-
-    def head_to_head_record(team1, team2):
-        return records[team1]['outcomes'].get(team2, {'wins': 0, 'losses': 0})['wins']
-
-    def sort_teams(tiebreaker_teams):
-        # Sort by division records first
-        sorted_teams = sorted(tiebreaker_teams, key=lambda t: (records[t]['wins'], division_record(t)), reverse=True)
-        
-        # Apply head-to-head tiebreaker
-        for i in range(len(sorted_teams) - 1):
-            for j in range(i + 1, len(sorted_teams)):
-                if head_to_head_record(sorted_teams[j], sorted_teams[i]) > 0:
-                    sorted_teams[i], sorted_teams[j] = sorted_teams[j], sorted_teams[i]
-        
-        return sorted_teams
-
-    return sort_teams(teams)
-
-def update_playoff_predictor():
-    for widget in playoff_predictor_frame.winfo_children():
-        widget.destroy()
+    # Playoff Predictor
+    playoff_predictor_frame = ttk.Frame(root, padding="10")
+    playoff_predictor_frame.grid(row=0, column=1, sticky="nsew")
     ttk.Label(playoff_predictor_frame, text="Playoff Predictor").pack()
 
-    conferences = {"AFC": [], "NFC": []}
-    for team in teams:
-        conference = team["conference"]
-        conferences[conference].append(team["name"])
+    def apply_tiebreakers(teams):
+        def division_record(team):
+            return records[team]['division_wins']
 
-    afc_frame = ttk.Frame(playoff_predictor_frame)
-    afc_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-    nfc_frame = ttk.Frame(playoff_predictor_frame)
-    nfc_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
+        def head_to_head_record(team1, team2):
+            return records[team1]['outcomes'].get(team2, {'wins': 0, 'losses': 0})['wins']
 
-    for conference, conference_teams in conferences.items():
-        # Sort teams by wins in descending order within each division
-        divisions = {}
-        for team in conference_teams:
-            division = next(t['division'] for t in teams if t['name'] == team)
-            if division not in divisions:
-                divisions[division] = []
-            divisions[division].append(team)
+        def sort_teams(tiebreaker_teams):
+            # Sort by division records first
+            sorted_teams = sorted(tiebreaker_teams, key=lambda t: (records[t]['wins'], division_record(t)), reverse=True)
+            
+            # Apply head-to-head tiebreaker
+            for i in range(len(sorted_teams) - 1):
+                for j in range(i + 1, len(sorted_teams)):
+                    if head_to_head_record(sorted_teams[j], sorted_teams[i]) > 0:
+                        sorted_teams[i], sorted_teams[j] = sorted_teams[j], sorted_teams[i]
+            
+            return sorted_teams
 
-        top_division_teams = []
-        for division, division_teams in divisions.items():
-            sorted_division_teams = sorted(division_teams, key=lambda t: records[t]['wins'], reverse=True)
-            top_division_teams.append(sorted_division_teams[0])
+        return sort_teams(teams)
 
-        # Sort top division teams by wins
-        sorted_top_division_teams = sorted(top_division_teams, key=lambda t: records[t]['wins'], reverse=True)
+    def update_playoff_predictor():
+        for widget in playoff_predictor_frame.winfo_children():
+            widget.destroy()
+        ttk.Label(playoff_predictor_frame, text="Playoff Predictor").pack()
 
-        # Sort remaining teams by wins in descending order
-        remaining_teams = [team for team in conference_teams if team not in sorted_top_division_teams]
-        sorted_remaining_teams = sorted(remaining_teams, key=lambda t: records[t]['wins'], reverse=True)
+        conferences = {"AFC": [], "NFC": []}
+        for team in teams:
+            conference = team["conference"]
+            conferences[conference].append(team["name"])
 
-        # Combine top division teams and remaining teams to get top 7 teams
-        top_teams = sorted_top_division_teams + sorted_remaining_teams[:3]
+        afc_frame = ttk.Frame(playoff_predictor_frame)
+        afc_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        nfc_frame = ttk.Frame(playoff_predictor_frame)
+        nfc_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
 
-        # Apply the logic for seeds 5, 6, and 7 based on head-to-head matchups
-        seeds_1_to_4 = top_teams[:4]
-        seeds_5_to_7 = sorted(top_teams[4:], key=lambda t: records[t]['wins'], reverse=True)
-        #seeds_5_to_7 = apply_tiebreakers(seeds_5_to_7)
-        top_teams = seeds_1_to_4 + seeds_5_to_7
+        for conference, conference_teams in conferences.items():
+            # Sort teams by wins in descending order within each division
+            divisions = {}
+            for team in conference_teams:
+                division = next(t['division'] for t in teams if t['name'] == team)
+                if division not in divisions:
+                    divisions[division] = []
+                divisions[division].append(team)
 
-        conference_frame = afc_frame if conference == "AFC" else nfc_frame
-        conference_label = ttk.Label(conference_frame, text=f"{conference} Playoff Teams", font=("Helvetica", 16))
-        conference_label.pack(anchor='w')
+            top_division_teams = []
+            for division, division_teams in divisions.items():
+                sorted_division_teams = sorted(division_teams, key=lambda t: records[t]['wins'], reverse=True)
+                top_division_teams.append(sorted_division_teams[0])
 
-        for seed, team in enumerate(top_teams, 1):
-            record = records[team]
-            team_frame = ttk.Frame(conference_frame)
-            team_frame.pack(anchor='w', padx=40)
-            team_logo = team_logos.get(team)
-            if team_logo:
-                logo_label = tk.Label(team_frame, image=team_logo)
-                logo_label.image = team_logo
-                logo_label.pack(side=tk.LEFT)
-            team_label = ttk.Label(team_frame, text=f"Seed {seed}: {team} ({record['wins']}-{record['losses']})")
-            team_label.pack(side=tk.LEFT)
+            # Sort top division teams by wins
+            sorted_top_division_teams = sorted(top_division_teams, key=lambda t: records[t]['wins'], reverse=True)
 
-update_playoff_predictor()
+            # Sort remaining teams by wins in descending order
+            remaining_teams = [team for team in conference_teams if team not in sorted_top_division_teams]
+            sorted_remaining_teams = sorted(remaining_teams, key=lambda t: records[t]['wins'], reverse=True)
 
-# Add a button to clear all winners
-clear_winners_button = ttk.Button(root, text="Clear All Winners", command=clear_all_winners)
-clear_winners_button.grid(row=2, column=1, sticky="e", padx=10, pady=10)
+            # Combine top division teams and remaining teams to get top 7 teams
+            top_teams = sorted_top_division_teams + sorted_remaining_teams[:3]
 
-print("Starting Tkinter main loop.")
-# Run the application
-root.mainloop()
-print("Tkinter main loop has ended.")
+            # Apply the logic for seeds 5, 6, and 7 based on head-to-head matchups
+            seeds_1_to_4 = top_teams[:4]
+            seeds_5_to_7 = sorted(top_teams[4:], key=lambda t: records[t]['wins'], reverse=True)
+            #seeds_5_to_7 = apply_tiebreakers(seeds_5_to_7)
+            top_teams = seeds_1_to_4 + seeds_5_to_7
+
+            conference_frame = afc_frame if conference == "AFC" else nfc_frame
+            conference_label = ttk.Label(conference_frame, text=f"{conference} Playoff Teams", font=("Helvetica", 16))
+            conference_label.pack(anchor='w')
+
+            for seed, team in enumerate(top_teams, 1):
+                record = records[team]
+                team_frame = ttk.Frame(conference_frame)
+                team_frame.pack(anchor='w', padx=40)
+                team_logo = team_logos.get(team)
+                if team_logo:
+                    logo_label = tk.Label(team_frame, image=team_logo)
+                    logo_label.image = team_logo
+                    logo_label.pack(side=tk.LEFT)
+                team_label = ttk.Label(team_frame, text=f"Seed {seed}: {team} ({record['wins']}-{record['losses']})")
+                team_label.pack(side=tk.LEFT)
+
+    update_playoff_predictor()
+
+    # Add a button to clear all winners
+    clear_winners_button = ttk.Button(root, text="Clear All Winners", command=clear_all_winners)
+    clear_winners_button.grid(row=2, column=1, sticky="e", padx=10, pady=10)
+
+    print("Starting Tkinter main loop.")
+    # Run the application
+    root.mainloop()
+    print("Tkinter main loop has ended.")
+
+if __name__ == "__main__":
+    main()
