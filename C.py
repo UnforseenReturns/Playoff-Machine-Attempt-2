@@ -6,9 +6,63 @@ from data_manager import load_game_data, save_game_data
 import sys
 import subprocess
 
+# Debug statement for the start of the script
+print("Script started.")
+
+# Function to clear all winners and reset records
+def clear_all_winners():
+    print("clear_all_winners: Starting to clear all winners.")
+    for game in games:
+        previous_winner = game.get('winner')
+        if previous_winner:
+            print(f"clear_all_winners: Clearing winner for game {game['team1']} vs {game['team2']}, previous winner: {previous_winner}")
+            if previous_winner == game['team1']:
+                records[game['team1']]['wins'] -= 1
+                records[game['team2']]['losses'] -= 1
+            else:
+                records[game['team1']]['losses'] -= 1
+                records[game['team2']]['wins'] -= 1
+
+            # Update head-to-head
+            if game['team1'] in records[game['team2']]['head_to_head']:
+                records[game['team2']]['head_to_head'][game['team1']] -= 1
+            if game['team2'] in records[game['team1']]['head_to_head']:
+                records[game['team1']]['head_to_head'][game['team2']] -= 1
+
+            # Record the outcome of the game
+            if previous_winner == game['team1']:
+                records[game['team1']]['outcomes'][game['team2']]['wins'] -= 1
+                records[game['team2']]['outcomes'][game['team1']]['losses'] -= 1
+            else:
+                records[game['team2']]['outcomes'][game['team1']]['wins'] -= 1
+                records[game['team1']]['outcomes'][game['team2']]['losses'] -= 1
+
+            # Update division wins
+            if 'division_game' in game and game['division_game']:
+                if previous_winner == game['team1']:
+                    records[game['team1']]['division_wins'] -= 1
+                else:
+                    records[game['team2']]['division_wins'] -= 1
+
+            # Clear the winner
+            game['winner'] = None
+
+    # Save the updated game data
+    print("clear_all_winners: Saving updated game data.")
+    save_game_data('games.json', {'teams': teams, 'games': games})
+
+    # Restart the script
+    print("clear_all_winners: Restarting the script.")
+    root.destroy()  # Close the current Tkinter window
+    python = sys.executable
+    os.execl(python, python, *sys.argv)
+    print("clear_all_winners: Script should be restarting...")
+
 # Create the main window
+print("Creating the main Tkinter window.")
 root = tk.Tk()
 root.title("Playoff Machine")
+print("Tkinter window created.")
 
 # Load JSON data
 team_data = load_game_data('teams.json')
@@ -30,122 +84,6 @@ for team in teams:
 
 # Initialize records with nested dictionaries for head-to-head outcomes
 records = {team['name']: {'wins': 0, 'losses': 0, 'head_to_head': {}, 'outcomes': {}, 'division_wins': 0} for team in teams}
-
-for game in games:
-    if game['winner']:
-        if game['winner'] == game['team1']:
-            records[game['team1']]['wins'] += 1
-            records[game['team2']]['losses'] += 1
-        else:
-            records[game['team1']]['losses'] += 1
-            records[game['team2']]['wins'] += 1
-
-        # Update head-to-head
-        if game['team1'] in records[game['team2']]['head_to_head']:
-            records[game['team2']]['head_to_head'][game['team1']] += 1
-        else:
-            records[game['team2']]['head_to_head'][game['team1']] = 1
-
-        if game['team2'] in records[game['team1']]['head_to_head']:
-            records[game['team1']]['head_to_head'][game['team2']] += 1
-        else:
-            records[game['team1']]['head_to_head'][game['team2']] = 1
-
-        # Record the outcome of the game
-        if game['team1'] not in records[game['team2']]['outcomes']:
-            records[game['team2']]['outcomes'][game['team1']] = {'wins': 0, 'losses': 0}
-        if game['team2'] not in records[game['team1']]['outcomes']:
-            records[game['team1']]['outcomes'][game['team2']] = {'wins': 0, 'losses': 0}
-
-        if game['winner'] == game['team1']:
-            records[game['team1']]['outcomes'][game['team2']]['wins'] += 1
-            records[game['team2']]['outcomes'][game['team1']]['losses'] += 1
-        else:
-            records[game['team2']]['outcomes'][game['team1']]['wins'] += 1
-            records[game['team1']]['outcomes'][game['team2']]['losses'] += 1
-
-        # Update division wins
-        if 'division_game' in game and game['division_game']:
-            if game['winner'] == game['team1']:
-                records[game['team1']]['division_wins'] += 1
-            else:
-                records[game['team2']]['division_wins'] += 1
-
-# Function to update game winner
-def update_winner(game, winner):
-    # Remove previous winner's stats
-    previous_winner = game.get('winner')
-    if previous_winner:
-        if previous_winner == game['team1']:
-            records[game['team1']]['wins'] -= 1
-            records[game['team2']]['losses'] -= 1
-        else:
-            records[game['team1']]['losses'] -= 1
-            records[game['team2']]['wins'] -= 1
-
-        # Update head-to-head
-        if game['team1'] in records[game['team2']]['head_to_head']:
-            records[game['team2']]['head_to_head'][game['team1']] -= 1
-        if game['team2'] in records[game['team1']]['head_to_head']:
-            records[game['team1']]['head_to_head'][game['team2']] -= 1
-
-        # Record the outcome of the game
-        if previous_winner == game['team1']:
-            records[game['team1']]['outcomes'][game['team2']]['wins'] -= 1
-            records[game['team2']]['outcomes'][game['team1']]['losses'] -= 1
-        else:
-            records[game['team2']]['outcomes'][game['team1']]['wins'] -= 1
-            records[game['team1']]['outcomes'][game['team2']]['losses'] -= 1
-
-        # Update division wins
-        if 'division_game' in game and game['division_game']:
-            if previous_winner == game['team1']:
-                records[game['team1']]['division_wins'] -= 1
-            else:
-                records[game['team2']]['division_wins'] -= 1
-
-    # Add new winner's stats
-    game['winner'] = winner
-    if winner == game['team1']:
-        records[game['team1']]['wins'] += 1
-        records[game['team2']]['losses'] += 1
-    else:
-        records[game['team1']]['losses'] += 1
-        records[game['team2']]['wins'] += 1
-
-    # Update head-to-head
-    if game['team1'] in records[game['team2']]['head_to_head']:
-        records[game['team2']]['head_to_head'][game['team1']] += 1
-    else:
-        records[game['team2']]['head_to_head'][game['team1']] = 1
-
-    if game['team2'] in records[game['team1']]['head_to_head']:
-        records[game['team1']]['head_to_head'][game['team2']] += 1
-    else:
-        records[game['team1']]['head_to_head'][game['team2']] = 1
-
-    # Record the outcome of the game
-    if game['team1'] not in records[game['team2']]['outcomes']:
-        records[game['team2']]['outcomes'][game['team1']] = {'wins': 0, 'losses': 0}
-    if game['team2'] not in records[game['team1']]['outcomes']:
-        records[game['team1']]['outcomes'][game['team2']] = {'wins': 0, 'losses': 0}
-
-    if winner == game['team1']:
-        records[game['team1']]['outcomes'][game['team2']]['wins'] += 1
-        records[game['team2']]['outcomes'][game['team1']]['losses'] += 1
-    else:
-        records[game['team2']]['outcomes'][game['team1']]['wins'] += 1
-        records[game['team1']]['outcomes'][game['team2']]['losses'] += 1
-
-    # Update division wins
-    if 'division_game' in game and game['division_game']:
-        if winner == game['team1']:
-            records[game['team1']]['division_wins'] += 1
-        else:
-            records[game['team2']]['division_wins'] += 1
-
-    # Save the updated game data
-    save_game_data('games.json', {'teams': teams, 'games': games})
 
 # Define the grid layout
 root.columnconfigure(0, weight=1)
@@ -350,57 +288,11 @@ def update_playoff_predictor():
 
 update_playoff_predictor()
 
-# Function to clear all winners and reset records
-def clear_all_winners():
-    print("clear_all_winners: Starting to clear all winners.")
-    for game in games:
-        previous_winner = game.get('winner')
-        if previous_winner:
-            print(f"clear_all_winners: Clearing winner for game {game['team1']} vs {game['team2']}, previous winner: {previous_winner}")
-            if previous_winner == game['team1']:
-                records[game['team1']]['wins'] -= 1
-                records[game['team2']]['losses'] -= 1
-            else:
-                records[game['team1']]['losses'] -= 1
-                records[game['team2']]['wins'] -= 1
-
-            # Update head-to-head
-            if game['team1'] in records[game['team2']]['head_to_head']:
-                records[game['team2']]['head_to_head'][game['team1']] -= 1
-            if game['team2'] in records[game['team1']]['head_to_head']:
-                records[game['team1']]['head_to_head'][game['team2']] -= 1
-
-            # Record the outcome of the game
-            if previous_winner == game['team1']:
-                records[game['team1']]['outcomes'][game['team2']]['wins'] -= 1
-                records[game['team2']]['outcomes'][game['team1']]['losses'] -= 1
-            else:
-                records[game['team2']]['outcomes'][game['team1']]['wins'] -= 1
-                records[game['team1']]['outcomes'][game['team2']]['losses'] -= 1
-
-            # Update division wins
-            if 'division_game' in game and game['division_game']:
-                if previous_winner == game['team1']:
-                    records[game['team1']]['division_wins'] -= 1
-                else:
-                    records[game['team2']]['division_wins'] -= 1
-
-            # Clear the winner
-            game['winner'] = None
-
-    # Save the updated game data
-    print("clear_all_winners: Saving updated game data.")
-    save_game_data('games.json', {'teams': teams, 'games': games})
-
-    # Restart the script
-    print("clear_all_winners: Restarting the script.")
-    root.destroy()  # Close the current Tkinter window
-    python = sys.executable
-    os.execl(python, python, *sys.argv)
-
 # Add a button to clear all winners
 clear_winners_button = ttk.Button(root, text="Clear All Winners", command=clear_all_winners)
 clear_winners_button.grid(row=2, column=1, sticky="e", padx=10, pady=10)
 
+print("Starting Tkinter main loop.")
 # Run the application
 root.mainloop()
+print("Tkinter main loop has ended.")
