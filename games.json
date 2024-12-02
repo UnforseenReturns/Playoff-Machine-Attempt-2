@@ -76,7 +76,7 @@
             "division": "East"
         },
         {
-            "name": "New Phyrexia Phyrexians",
+            "name": "New York Jets",
             "conference": "AFC",
             "division": "East"
         },
@@ -151,7 +151,7 @@
             "division": "East"
         },
         {
-            "name": "Underground Bounty Hunters",
+            "name": "New York Giants",
             "conference": "NFC",
             "division": "East"
         },
@@ -166,469 +166,469 @@
             "team1": "Baltimore Ravens",
             "team2": "Kansas City Chiefs",
             "week": 1,
-            "winner": null
+            "winner": "Baltimore Ravens"
         },
         {
             "team1": "Green Bay Packers",
             "team2": "Philadelphia Eagles",
             "week": 1,
-            "winner": null
+            "winner": "Philadelphia Eagles"
         },
         {
             "team1": "Pittsburgh Steelers",
             "team2": "Atlanta Falcons",
             "week": 1,
-            "winner": null
+            "winner": "Atlanta Falcons"
         },
         {
             "team1": "Arizona Cardinals",
             "team2": "Buffalo Bills",
             "week": 1,
-            "winner": null
+            "winner": "Buffalo Bills"
         },
         {
             "team1": "Tennessee Titans",
             "team2": "Chicago Bears",
             "week": 1,
-            "winner": null
+            "winner": "Chicago Bears"
         },
         {
             "team1": "New England Patriots",
             "team2": "Cincinnati Bengals",
             "week": 1,
-            "winner": null
+            "winner": "Cincinnati Bengals"
         },
         {
             "team1": "Houston Texans",
             "team2": "Indianapolis Colts",
             "week": 1,
-            "winner": null
+            "winner": "Indianapolis Colts"
         },
         {
             "team1": "Jacksonville Jaguars",
             "team2": "Miami Dolphins",
             "week": 1,
-            "winner": null
+            "winner": "Jacksonville Jaguars"
         },
         {
             "team1": "Carolina Panthers",
             "team2": "New Orleans Saints",
             "week": 1,
-            "winner": null
+            "winner": "New Orleans Saints"
         },
         {
             "team1": "Minnesota Vikings",
-            "team2": "Underground Bounty Hunters",
+            "team2": "New York Giants",
             "week": 1,
-            "winner": null
+            "winner": "Minnesota Vikings"
         },
         {
             "team1": "Las Vegas Raiders",
             "team2": "Los Angeles Chargers",
             "week": 1,
-            "winner": null
+            "winner": "Los Angeles Chargers"
         },
         {
             "team1": "Denver Broncos",
             "team2": "Seattle Seahawks",
             "week": 1,
-            "winner": null
+            "winner": "Denver Broncos"
         },
         {
             "team1": "Dallas Cowboys",
             "team2": "Cleveland Browns",
             "week": 1,
-            "winner": null
+            "winner": "Dallas Cowboys"
         },
         {
             "team1": "Washington Commanders",
             "team2": "Tampa Bay Buccaneers",
             "week": 1,
-            "winner": null
+            "winner": "Washington Commanders"
         },
         {
             "team1": "Los Angeles Rams",
             "team2": "Detroit Lions",
             "week": 1,
-            "winner": null
+            "winner": "Los Angeles Rams"
         },
         {
-            "team1": "New Phyrexia Phyrexians",
+            "team1": "New York Jets",
             "team2": "San Francisco 49ers",
             "week": 1,
-            "winner": null
+            "winner": "New York Jets"
         },
         {
             "team1": "Buffalo Bills",
             "team2": "Miami Dolphins",
             "week": 2,
-            "winner": null
+            "winner": "Buffalo Bills"
         },
         {
             "team1": "New Orleans Saints",
             "team2": "Dallas Cowboys",
             "week": 2,
-            "winner": null
+            "winner": "Dallas Cowboys"
         },
         {
             "team1": "Tampa Bay Buccaneers",
             "team2": "Detroit Lions",
             "week": 2,
-            "winner": null
+            "winner": "Detroit Lions"
         },
         {
             "team1": "Indianapolis Colts",
             "team2": "Green Bay Packers",
             "week": 2,
-            "winner": null
+            "winner": "Indianapolis Colts"
         },
         {
-            "team1": "New Phyrexia Phyrexians",
+            "team1": "New York Jets",
             "team2": "Tennessee Titans",
             "week": 2,
-            "winner": null
+            "winner": "New York Jets"
         },
         {
             "team1": "San Francisco 49ers",
             "team2": "Minnesota Vikings",
             "week": 2,
-            "winner": null
+            "winner": "Minnesota Vikings"
         },
         {
             "team1": "Seattle Seahawks",
             "team2": "New England Patriots",
             "week": 2,
-            "winner": null
+            "winner": "Seattle Seahawks"
         },
         {
-            "team1": "Underground Bounty Hunters",
+            "team1": "New York Giants",
             "team2": "Washington Commanders",
             "week": 2,
-            "winner": null
+            "winner": "Washington Commanders"
         },
         {
             "team1": "Los Angeles Rams",
             "team2": "Arizona Cardinals",
             "week": 2,
-            "winner": null
+            "winner": "Arizona Cardinals"
         },
         {
             "team1": "Pittsburgh Steelers",
             "team2": "Denver Broncos",
             "week": 2,
-            "winner": null
+            "winner": "Pittsburgh Steelers"
         },
         {
             "team1": "Cincinnati Bengals",
             "team2": "Kansas City Chiefs",
             "week": 2,
-            "winner": null
+            "winner": "Kansas City Chiefs"
         },
         {
             "team1": "Chicago Bears",
             "team2": "Houston Texans",
             "week": 2,
-            "winner": null
+            "winner": "Chicago Bears"
         },
         {
             "team1": "Los Angeles Chargers",
             "team2": "Carolina Panthers",
             "week": 2,
-            "winner": null
+            "winner": "Los Angeles Chargers"
         },
         {
             "team1": "Cleveland Browns",
             "team2": "Jacksonville Jaguars",
             "week": 2,
-            "winner": null
+            "winner": "Jacksonville Jaguars"
         },
         {
             "team1": "Las Vegas Raiders",
             "team2": "Baltimore Ravens",
             "week": 2,
-            "winner": null
+            "winner": "Baltimore Ravens"
         },
         {
             "team1": "Atlanta Falcons",
             "team2": "Philadelphia Eagles",
             "week": 2,
-            "winner": null
+            "winner": "Philadelphia Eagles"
         },
         {
             "team1": "New England Patriots",
-            "team2": "New Phyrexia Phyrexians",
+            "team2": "New York Jets",
             "week": 3,
-            "winner": null
+            "winner": "New York Jets"
         },
         {
-            "team1": "Underground Bounty Hunters",
+            "team1": "New York Giants",
             "team2": "Cleveland Browns",
             "week": 3,
-            "winner": null
+            "winner": "Cleveland Browns"
         },
         {
             "team1": "Green Bay Packers",
             "team2": "Tennessee Titans",
             "week": 3,
-            "winner": null
+            "winner": "Tennessee Titans"
         },
         {
             "team1": "Chicago Bears",
             "team2": "Indianapolis Colts",
             "week": 3,
-            "winner": null
+            "winner": "Indianapolis Colts"
         },
         {
             "team1": "Houston Texans",
             "team2": "Minnesota Vikings",
             "week": 3,
-            "winner": null
+            "winner": "Houston Texans"
         },
         {
             "team1": "Philadelphia Eagles",
             "team2": "New Orleans Saints",
             "week": 3,
-            "winner": null
+            "winner": "Philadelphia Eagles"
         },
         {
             "team1": "Los Angeles Chargers",
             "team2": "Pittsburgh Steelers",
             "week": 3,
-            "winner": null
+            "winner": "Pittsburgh Steelers"
         },
         {
             "team1": "Denver Broncos",
             "team2": "Tampa Bay Buccaneers",
             "week": 3,
-            "winner": null
+            "winner": "Denver Broncos"
         },
         {
             "team1": "Carolina Panthers",
             "team2": "Las Vegas Raiders",
             "week": 3,
-            "winner": null
+            "winner": "Las Vegas Raiders"
         },
         {
             "team1": "Miami Dolphins",
             "team2": "Seattle Seahawks",
             "week": 3,
-            "winner": null
+            "winner": "Miami Dolphins"
         },
         {
             "team1": "Baltimore Ravens",
             "team2": "Dallas Cowboys",
             "week": 3,
-            "winner": null
+            "winner": "Baltimore Ravens"
         },
         {
             "team1": "San Francisco 49ers",
             "team2": "Los Angeles Rams",
             "week": 3,
-            "winner": null
+            "winner": "Los Angeles Rams"
         },
         {
             "team1": "Detroit Lions",
             "team2": "Arizona Cardinals",
             "week": 3,
-            "winner": null
+            "winner": "Arizona Cardinals"
         },
         {
             "team1": "Kansas City Chiefs",
             "team2": "Atlanta Falcons",
             "week": 3,
-            "winner": null
+            "winner": "Atlanta Falcons"
         },
         {
             "team1": "Jacksonville Jaguars",
             "team2": "Buffalo Bills",
             "week": 3,
-            "winner": null
+            "winner": "Jacksonville Jaguars"
         },
         {
             "team1": "Washington Commanders",
             "team2": "Cincinnati Bengals",
             "week": 3,
-            "winner": null
+            "winner": "Washington Commanders"
         },
         {
             "team1": "Dallas Cowboys",
-            "team2": "Underground Bounty Hunters",
+            "team2": "New York Giants",
             "week": 4,
-            "winner": null
+            "winner": "Dallas Cowboys"
         },
         {
             "team1": "Los Angeles Rams",
             "team2": "Chicago Bears",
             "week": 4,
-            "winner": null
+            "winner": "Los Angeles Rams"
         },
         {
             "team1": "Minnesota Vikings",
             "team2": "Green Bay Packers",
             "week": 4,
-            "winner": null
+            "winner": "Minnesota Vikings"
         },
         {
             "team1": "Pittsburgh Steelers",
             "team2": "Indianapolis Colts",
             "week": 4,
-            "winner": null
+            "winner": "Indianapolis Colts"
         },
         {
             "team1": "Denver Broncos",
-            "team2": "New Phyrexia Phyrexians",
+            "team2": "New York Jets",
             "week": 4,
-            "winner": null
+            "winner": "New York Jets"
         },
         {
             "team1": "Philadelphia Eagles",
             "team2": "Tampa Bay Buccaneers",
             "week": 4,
-            "winner": null
+            "winner": "Philadelphia Eagles"
         },
         {
             "team1": "Cincinnati Bengals",
             "team2": "Carolina Panthers",
             "week": 4,
-            "winner": null
+            "winner": "Carolina Panthers"
         },
         {
             "team1": "Jacksonville Jaguars",
             "team2": "Houston Texans",
             "week": 4,
-            "winner": null
+            "winner": "Houston Texans"
         },
         {
             "team1": "Washington Commanders",
             "team2": "Arizona Cardinals",
             "week": 4,
-            "winner": null
+            "winner": "Washington Commanders"
         },
         {
             "team1": "New England Patriots",
             "team2": "San Francisco 49ers",
             "week": 4,
-            "winner": null
+            "winner": "San Francisco 49ers"
         },
         {
             "team1": "New Orleans Saints",
             "team2": "Atlanta Falcons",
             "week": 4,
-            "winner": null
+            "winner": "New Orleans Saints"
         },
         {
             "team1": "Cleveland Browns",
             "team2": "Las Vegas Raiders",
             "week": 4,
-            "winner": null
+            "winner": "Las Vegas Raiders"
         },
         {
             "team1": "Kansas City Chiefs",
             "team2": "Los Angeles Chargers",
             "week": 4,
-            "winner": null
+            "winner": "Kansas City Chiefs"
         },
         {
             "team1": "Buffalo Bills",
             "team2": "Baltimore Ravens",
             "week": 4,
-            "winner": null
+            "winner": "Baltimore Ravens"
         },
         {
             "team1": "Tennessee Titans",
             "team2": "Miami Dolphins",
             "week": 4,
-            "winner": null
+            "winner": "Miami Dolphins"
         },
         {
             "team1": "Seattle Seahawks",
             "team2": "Detroit Lions",
             "week": 4,
-            "winner": null
+            "winner": "Seattle Seahawks"
         },
         {
             "team1": "Tampa Bay Buccaneers",
             "team2": "Atlanta Falcons",
             "week": 5,
-            "winner": null
+            "winner": "Tampa Bay Buccaneers"
         },
         {
-            "team1": "New Phyrexia Phyrexians",
+            "team1": "New York Jets",
             "team2": "Minnesota Vikings",
             "week": 5,
-            "winner": null
+            "winner": "New York Jets"
         },
         {
             "team1": "Carolina Panthers",
             "team2": "Chicago Bears",
             "week": 5,
-            "winner": null
+            "winner": "Carolina Panthers"
         },
         {
             "team1": "Baltimore Ravens",
             "team2": "Cincinnati Bengals",
             "week": 5,
-            "winner": null
+            "winner": "Baltimore Ravens"
         },
         {
             "team1": "Miami Dolphins",
             "team2": "New England Patriots",
             "week": 5,
-            "winner": null
+            "winner": "Miami Dolphins"
         },
         {
             "team1": "Cleveland Browns",
             "team2": "Washington Commanders",
             "week": 5,
-            "winner": null
+            "winner": "Washington Commanders"
         },
         {
             "team1": "Indianapolis Colts",
             "team2": "Jacksonville Jaguars",
             "week": 5,
-            "winner": null
+            "winner": "Indianapolis Colts"
         },
         {
             "team1": "Buffalo Bills",
             "team2": "Houston Texans",
             "week": 5,
-            "winner": null
+            "winner": "Buffalo Bills"
         },
         {
             "team1": "Las Vegas Raiders",
             "team2": "Denver Broncos",
             "week": 5,
-            "winner": null
+            "winner": "Las Vegas Raiders"
         },
         {
             "team1": "Arizona Cardinals",
             "team2": "San Francisco 49ers",
             "week": 5,
-            "winner": null
+            "winner": "San Francisco 49ers"
         },
         {
             "team1": "Green Bay Packers",
             "team2": "Los Angeles Rams",
             "week": 5,
-            "winner": null
+            "winner": "Los Angeles Rams"
         },
         {
-            "team1": "Underground Bounty Hunters",
+            "team1": "New York Giants",
             "team2": "Seattle Seahawks",
             "week": 5,
-            "winner": null
+            "winner": "Seattle Seahawks"
         },
         {
             "team1": "Dallas Cowboys",
             "team2": "Pittsburgh Steelers",
             "week": 5,
-            "winner": null
+            "winner": "Pittsburgh Steelers"
         },
         {
             "team1": "New Orleans Saints",
             "team2": "Kansas City Chiefs",
             "week": 5,
-            "winner": null
+            "winner": "New Orleans Saints"
         },
         {
             "team1": "San Francisco 49ers",
@@ -704,13 +704,13 @@
         },
         {
             "team1": "Cincinnati Bengals",
-            "team2": "Underground Bounty Hunters",
+            "team2": "New York Giants",
             "week": 6,
             "winner": null
         },
         {
             "team1": "Buffalo Bills",
-            "team2": "New Phyrexia Phyrexians",
+            "team2": "New York Jets",
             "week": 6,
             "winner": null
         },
@@ -764,7 +764,7 @@
         },
         {
             "team1": "Philadelphia Eagles",
-            "team2": "Underground Bounty Hunters",
+            "team2": "New York Giants",
             "week": 7,
             "winner": null
         },
@@ -787,7 +787,7 @@
             "winner": null
         },
         {
-            "team1": "New Phyrexia Phyrexians",
+            "team1": "New York Jets",
             "team2": "Pittsburgh Steelers",
             "week": 7,
             "winner": null
@@ -829,7 +829,7 @@
             "winner": null
         },
         {
-            "team1": "New Phyrexia Phyrexians",
+            "team1": "New York Jets",
             "team2": "New England Patriots",
             "week": 8,
             "winner": null
@@ -895,14 +895,14 @@
             "winner": null
         },
         {
-            "team1": "Underground Bounty Hunters",
+            "team1": "New York Giants",
             "team2": "Pittsburgh Steelers",
             "week": 8,
             "winner": null
         },
         {
             "team1": "Houston Texans",
-            "team2": "New Phyrexia Phyrexians",
+            "team2": "New York Jets",
             "week": 9,
             "winner": null
         },
@@ -944,7 +944,7 @@
         },
         {
             "team1": "Washington Commanders",
-            "team2": "Underground Bounty Hunters",
+            "team2": "New York Giants",
             "week": 9,
             "winner": null
         },
@@ -997,7 +997,7 @@
             "winner": null
         },
         {
-            "team1": "Underground Bounty Hunters",
+            "team1": "New York Giants",
             "team2": "Carolina Panthers",
             "week": 10,
             "winner": null
@@ -1057,7 +1057,7 @@
             "winner": null
         },
         {
-            "team1": "New Phyrexia Phyrexians",
+            "team1": "New York Jets",
             "team2": "Arizona Cardinals",
             "week": 10,
             "winner": null
@@ -1148,7 +1148,7 @@
         },
         {
             "team1": "Indianapolis Colts",
-            "team2": "New Phyrexia Phyrexians",
+            "team2": "New York Jets",
             "week": 11,
             "winner": null
         },
@@ -1184,7 +1184,7 @@
         },
         {
             "team1": "Tampa Bay Buccaneers",
-            "team2": "Underground Bounty Hunters",
+            "team2": "New York Giants",
             "week": 12,
             "winner": null
         },
@@ -1243,7 +1243,7 @@
             "winner": null
         },
         {
-            "team1": "Underground Bounty Hunters",
+            "team1": "New York Giants",
             "team2": "Dallas Cowboys",
             "week": 13,
             "winner": null
@@ -1286,7 +1286,7 @@
         },
         {
             "team1": "Seattle Seahawks",
-            "team2": "New Phyrexia Phyrexians",
+            "team2": "New York Jets",
             "week": 13,
             "winner": null
         },
@@ -1345,7 +1345,7 @@
             "winner": null
         },
         {
-            "team1": "New Phyrexia Phyrexians",
+            "team1": "New York Jets",
             "team2": "Miami Dolphins",
             "week": 14,
             "winner": null
@@ -1358,7 +1358,7 @@
         },
         {
             "team1": "New Orleans Saints",
-            "team2": "Underground Bounty Hunters",
+            "team2": "New York Giants",
             "week": 14,
             "winner": null
         },
@@ -1436,7 +1436,7 @@
         },
         {
             "team1": "Baltimore Ravens",
-            "team2": "Underground Bounty Hunters",
+            "team2": "New York Giants",
             "week": 15,
             "winner": null
         },
@@ -1447,7 +1447,7 @@
             "winner": null
         },
         {
-            "team1": "New Phyrexia Phyrexians",
+            "team1": "New York Jets",
             "team2": "Jacksonville Jaguars",
             "week": 15,
             "winner": null
@@ -1525,7 +1525,7 @@
             "winner": null
         },
         {
-            "team1": "Underground Bounty Hunters",
+            "team1": "New York Giants",
             "team2": "Atlanta Falcons",
             "week": 16,
             "winner": null
@@ -1550,7 +1550,7 @@
         },
         {
             "team1": "Los Angeles Rams",
-            "team2": "New Phyrexia Phyrexians",
+            "team2": "New York Jets",
             "week": 16,
             "winner": null
         },
@@ -1640,7 +1640,7 @@
         },
         {
             "team1": "Indianapolis Colts",
-            "team2": "Underground Bounty Hunters",
+            "team2": "New York Giants",
             "week": 17,
             "winner": null
         },
@@ -1651,7 +1651,7 @@
             "winner": null
         },
         {
-            "team1": "New Phyrexia Phyrexians",
+            "team1": "New York Jets",
             "team2": "Buffalo Bills",
             "week": 17,
             "winner": null
@@ -1747,7 +1747,7 @@
             "winner": null
         },
         {
-            "team1": "Underground Bounty Hunters",
+            "team1": "New York Giants",
             "team2": "Philadelphia Eagles",
             "week": 18,
             "winner": null
@@ -1790,7 +1790,7 @@
         },
         {
             "team1": "Miami Dolphins",
-            "team2": "New Phyrexia Phyrexians",
+            "team2": "New York Jets",
             "week": 18,
             "winner": null
         }

@@ -151,7 +151,7 @@
 			"division": "East"
 		},
 		{
-			"name": "Underground Bounty Hunters",
+			"name": "New York Giants",
 			"conference": "NFC",
 			"division": "East"
 		},
@@ -218,7 +218,7 @@
 		},
 		{
 			"team1": "Minnesota Vikings",
-			"team2": "Underground Bounty Hunters",
+			"team2": "New York Giants",
 			"week": 1,
 			"winner": null
 		},
@@ -301,7 +301,7 @@
 			"winner": null
 		},
 		{
-			"team1": "Underground Bounty Hunters",
+			"team1": "New York Giants",
 			"team2": "Washington Commanders",
 			"week": 2,
 			"winner": null
@@ -361,7 +361,7 @@
 			"winner": null
 		},
 		{
-			"team1": "Underground Bounty Hunters",
+			"team1": "New York Giants",
 			"team2": "Cleveland Browns",
 			"week": 3,
 			"winner": null
@@ -452,7 +452,7 @@
 		},
 		{
 			"team1": "Dallas Cowboys",
-			"team2": "Underground Bounty Hunters",
+			"team2": "New York Giants",
 			"week": 4,
 			"winner": null
 		},
@@ -613,7 +613,7 @@
 			"winner": null
 		},
 		{
-			"team1": "Underground Bounty Hunters",
+			"team1": "New York Giants",
 			"team2": "Seattle Seahawks",
 			"week": 5,
 			"winner": null
@@ -704,7 +704,7 @@
 		},
 		{
 			"team1": "Cincinnati Bengals",
-			"team2": "Underground Bounty Hunters",
+			"team2": "New York Giants",
 			"week": 6,
 			"winner": null
 		},
@@ -764,7 +764,7 @@
 		},
 		{
 			"team1": "Philadelphia Eagles",
-			"team2": "Underground Bounty Hunters",
+			"team2": "New York Giants",
 			"week": 7,
 			"winner": null
 		},
@@ -895,7 +895,7 @@
 			"winner": null
 		},
 		{
-			"team1": "Underground Bounty Hunters",
+			"team1": "New York Giants",
 			"team2": "Pittsburgh Steelers",
 			"week": 8,
 			"winner": null
@@ -944,7 +944,7 @@
 		},
 		{
 			"team1": "Washington Commanders",
-			"team2": "Underground Bounty Hunters",
+			"team2": "New York Giants",
 			"week": 9,
 			"winner": null
 		},
@@ -997,7 +997,7 @@
 			"winner": null
 		},
 		{
-			"team1": "Underground Bounty Hunters",
+			"team1": "New York Giants",
 			"team2": "Carolina Panthers",
 			"week": 10,
 			"winner": null
@@ -1184,7 +1184,7 @@
 		},
 		{
 			"team1": "Tampa Bay Buccaneers",
-			"team2": "Underground Bounty Hunters",
+			"team2": "New York Giants",
 			"week": 12,
 			"winner": null
 		},
@@ -1243,7 +1243,7 @@
 			"winner": null
 		},
 		{
-			"team1": "Underground Bounty Hunters",
+			"team1": "New York Giants",
 			"team2": "Dallas Cowboys",
 			"week": 13,
 			"winner": null
@@ -1358,7 +1358,7 @@
 		},
 		{
 			"team1": "New Orleans Saints",
-			"team2": "Underground Bounty Hunters",
+			"team2": "New York Giants",
 			"week": 14,
 			"winner": null
 		},
@@ -1436,7 +1436,7 @@
 		},
 		{
 			"team1": "Baltimore Ravens",
-			"team2": "Underground Bounty Hunters",
+			"team2": "New York Giants",
 			"week": 15,
 			"winner": null
 		},
@@ -1525,7 +1525,7 @@
 			"winner": null
 		},
 		{
-			"team1": "Underground Bounty Hunters",
+			"team1": "New York Giants",
 			"team2": "Atlanta Falcons",
 			"week": 16,
 			"winner": null
@@ -1640,7 +1640,7 @@
 		},
 		{
 			"team1": "Indianapolis Colts",
-			"team2": "Underground Bounty Hunters",
+			"team2": "New York Giants",
 			"week": 17,
 			"winner": null
 		},
@@ -1747,7 +1747,7 @@
 			"winner": null
 		},
 		{
-			"team1": "Underground Bounty Hunters",
+			"team1": "New York Giants",
 			"team2": "Philadelphia Eagles",
 			"week": 18,
 			"winner": null
