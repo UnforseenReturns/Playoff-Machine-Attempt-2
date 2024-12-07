@@ -166,1633 +166,2177 @@
             "team1": "Baltimore Ravens",
             "team2": "Kansas City Chiefs",
             "week": 1,
-            "winner": null
+            "winner": "Baltimore Ravens",
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Green Bay Packers",
             "team2": "Philadelphia Eagles",
             "week": 1,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Pittsburgh Steelers",
             "team2": "Atlanta Falcons",
             "week": 1,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Arizona Cardinals",
             "team2": "Buffalo Bills",
             "week": 1,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Tennessee Titans",
             "team2": "Chicago Bears",
             "week": 1,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New England Patriots",
             "team2": "Cincinnati Bengals",
             "week": 1,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Houston Texans",
             "team2": "Indianapolis Colts",
             "week": 1,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Jacksonville Jaguars",
             "team2": "Miami Dolphins",
             "week": 1,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Carolina Panthers",
             "team2": "New Orleans Saints",
             "week": 1,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Minnesota Vikings",
             "team2": "New York Giants",
             "week": 1,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Las Vegas Raiders",
             "team2": "Los Angeles Chargers",
             "week": 1,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Denver Broncos",
             "team2": "Seattle Seahawks",
             "week": 1,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Dallas Cowboys",
             "team2": "Cleveland Browns",
             "week": 1,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Washington Commanders",
             "team2": "Tampa Bay Buccaneers",
             "week": 1,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Los Angeles Rams",
             "team2": "Detroit Lions",
             "week": 1,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New York Jets",
             "team2": "San Francisco 49ers",
             "week": 1,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Buffalo Bills",
             "team2": "Miami Dolphins",
             "week": 2,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New Orleans Saints",
             "team2": "Dallas Cowboys",
             "week": 2,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Tampa Bay Buccaneers",
             "team2": "Detroit Lions",
             "week": 2,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Indianapolis Colts",
             "team2": "Green Bay Packers",
             "week": 2,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New York Jets",
             "team2": "Tennessee Titans",
             "week": 2,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "San Francisco 49ers",
             "team2": "Minnesota Vikings",
             "week": 2,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Seattle Seahawks",
             "team2": "New England Patriots",
             "week": 2,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New York Giants",
             "team2": "Washington Commanders",
             "week": 2,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Los Angeles Rams",
             "team2": "Arizona Cardinals",
             "week": 2,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Pittsburgh Steelers",
             "team2": "Denver Broncos",
             "week": 2,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Cincinnati Bengals",
             "team2": "Kansas City Chiefs",
             "week": 2,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Chicago Bears",
             "team2": "Houston Texans",
             "week": 2,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Los Angeles Chargers",
             "team2": "Carolina Panthers",
             "week": 2,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Cleveland Browns",
             "team2": "Jacksonville Jaguars",
             "week": 2,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Las Vegas Raiders",
             "team2": "Baltimore Ravens",
             "week": 2,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Atlanta Falcons",
             "team2": "Philadelphia Eagles",
             "week": 2,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New England Patriots",
             "team2": "New York Jets",
             "week": 3,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New York Giants",
             "team2": "Cleveland Browns",
             "week": 3,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Green Bay Packers",
             "team2": "Tennessee Titans",
             "week": 3,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Chicago Bears",
             "team2": "Indianapolis Colts",
             "week": 3,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Houston Texans",
             "team2": "Minnesota Vikings",
             "week": 3,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Philadelphia Eagles",
             "team2": "New Orleans Saints",
             "week": 3,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Los Angeles Chargers",
             "team2": "Pittsburgh Steelers",
             "week": 3,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Denver Broncos",
             "team2": "Tampa Bay Buccaneers",
             "week": 3,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Carolina Panthers",
             "team2": "Las Vegas Raiders",
             "week": 3,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Miami Dolphins",
             "team2": "Seattle Seahawks",
             "week": 3,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Baltimore Ravens",
             "team2": "Dallas Cowboys",
             "week": 3,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "San Francisco 49ers",
             "team2": "Los Angeles Rams",
             "week": 3,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Detroit Lions",
             "team2": "Arizona Cardinals",
             "week": 3,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Kansas City Chiefs",
             "team2": "Atlanta Falcons",
             "week": 3,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Jacksonville Jaguars",
             "team2": "Buffalo Bills",
             "week": 3,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Washington Commanders",
             "team2": "Cincinnati Bengals",
             "week": 3,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Dallas Cowboys",
             "team2": "New York Giants",
             "week": 4,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Los Angeles Rams",
             "team2": "Chicago Bears",
             "week": 4,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Minnesota Vikings",
             "team2": "Green Bay Packers",
             "week": 4,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Pittsburgh Steelers",
             "team2": "Indianapolis Colts",
             "week": 4,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Denver Broncos",
             "team2": "New York Jets",
             "week": 4,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Philadelphia Eagles",
             "team2": "Tampa Bay Buccaneers",
             "week": 4,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Cincinnati Bengals",
             "team2": "Carolina Panthers",
             "week": 4,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Jacksonville Jaguars",
             "team2": "Houston Texans",
             "week": 4,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Washington Commanders",
             "team2": "Arizona Cardinals",
             "week": 4,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New England Patriots",
             "team2": "San Francisco 49ers",
             "week": 4,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New Orleans Saints",
             "team2": "Atlanta Falcons",
             "week": 4,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Cleveland Browns",
             "team2": "Las Vegas Raiders",
             "week": 4,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Kansas City Chiefs",
             "team2": "Los Angeles Chargers",
             "week": 4,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Buffalo Bills",
             "team2": "Baltimore Ravens",
             "week": 4,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Tennessee Titans",
             "team2": "Miami Dolphins",
             "week": 4,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Seattle Seahawks",
             "team2": "Detroit Lions",
             "week": 4,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Tampa Bay Buccaneers",
             "team2": "Atlanta Falcons",
             "week": 5,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New York Jets",
             "team2": "Minnesota Vikings",
             "week": 5,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Carolina Panthers",
             "team2": "Chicago Bears",
             "week": 5,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Baltimore Ravens",
             "team2": "Cincinnati Bengals",
             "week": 5,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Miami Dolphins",
             "team2": "New England Patriots",
             "week": 5,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Cleveland Browns",
             "team2": "Washington Commanders",
             "week": 5,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Indianapolis Colts",
             "team2": "Jacksonville Jaguars",
             "week": 5,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Buffalo Bills",
             "team2": "Houston Texans",
             "week": 5,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Las Vegas Raiders",
             "team2": "Denver Broncos",
             "week": 5,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Arizona Cardinals",
             "team2": "San Francisco 49ers",
             "week": 5,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Green Bay Packers",
             "team2": "Los Angeles Rams",
             "week": 5,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New York Giants",
             "team2": "Seattle Seahawks",
             "week": 5,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Dallas Cowboys",
             "team2": "Pittsburgh Steelers",
             "week": 5,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New Orleans Saints",
             "team2": "Kansas City Chiefs",
             "week": 5,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "San Francisco 49ers",
             "team2": "Seattle Seahawks",
             "week": 6,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Jacksonville Jaguars",
             "team2": "Chicago Bears",
             "week": 6,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Arizona Cardinals",
             "team2": "Green Bay Packers",
             "week": 6,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Indianapolis Colts",
             "team2": "Tennessee Titans",
             "week": 6,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Houston Texans",
             "team2": "New England Patriots",
             "week": 6,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Tampa Bay Buccaneers",
             "team2": "New Orleans Saints",
             "week": 6,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Cleveland Browns",
             "team2": "Philadelphia Eagles",
             "week": 6,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Washington Commanders",
             "team2": "Baltimore Ravens",
             "week": 6,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Los Angeles Chargers",
             "team2": "Denver Broncos",
             "week": 6,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Pittsburgh Steelers",
             "team2": "Las Vegas Raiders",
             "week": 6,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Detroit Lions",
             "team2": "Dallas Cowboys",
             "week": 6,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Atlanta Falcons",
             "team2": "Carolina Panthers",
             "week": 6,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Cincinnati Bengals",
             "team2": "New York Giants",
             "week": 6,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Buffalo Bills",
             "team2": "New York Jets",
             "week": 6,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Denver Broncos",
             "team2": "New Orleans Saints",
             "week": 7,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New England Patriots",
             "team2": "Jacksonville Jaguars",
             "week": 7,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Seattle Seahawks",
             "team2": "Atlanta Falcons",
             "week": 7,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Tennessee Titans",
             "team2": "Buffalo Bills",
             "week": 7,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Cincinnati Bengals",
             "team2": "Cleveland Browns",
             "week": 7,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Houston Texans",
             "team2": "Green Bay Packers",
             "week": 7,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Miami Dolphins",
             "team2": "Indianapolis Colts",
             "week": 7,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Detroit Lions",
             "team2": "Minnesota Vikings",
             "week": 7,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Philadelphia Eagles",
             "team2": "New York Giants",
             "week": 7,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Las Vegas Raiders",
             "team2": "Los Angeles Rams",
             "week": 7,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Carolina Panthers",
             "team2": "Washington Commanders",
             "week": 7,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Kansas City Chiefs",
             "team2": "San Francisco 49ers",
             "week": 7,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New York Jets",
             "team2": "Pittsburgh Steelers",
             "week": 7,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Baltimore Ravens",
             "team2": "Tampa Bay Buccaneers",
             "week": 7,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Los Angeles Chargers",
             "team2": "Arizona Cardinals",
             "week": 7,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Minnesota Vikings",
             "team2": "Los Angeles Rams",
             "week": 8,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Baltimore Ravens",
             "team2": "Cleveland Browns",
             "week": 8,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Tennessee Titans",
             "team2": "Detroit Lions",
             "week": 8,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Arizona Cardinals",
             "team2": "Miami Dolphins",
             "week": 8,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New York Jets",
             "team2": "New England Patriots",
             "week": 8,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Atlanta Falcons",
             "team2": "Tampa Bay Buccaneers",
             "week": 8,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Chicago Bears",
             "team2": "Washington Commanders",
             "week": 8,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Green Bay Packers",
             "team2": "Jacksonville Jaguars",
             "week": 8,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Indianapolis Colts",
             "team2": "Houston Texans",
             "week": 8,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New Orleans Saints",
             "team2": "Los Angeles Chargers",
             "week": 8,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Buffalo Bills",
             "team2": "Seattle Seahawks",
             "week": 8,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Philadelphia Eagles",
             "team2": "Cincinnati Bengals",
             "week": 8,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Carolina Panthers",
             "team2": "Denver Broncos",
             "week": 8,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Kansas City Chiefs",
             "team2": "Las Vegas Raiders",
             "week": 8,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Dallas Cowboys",
             "team2": "San Francisco 49ers",
             "week": 8,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New York Giants",
             "team2": "Pittsburgh Steelers",
             "week": 8,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Houston Texans",
             "team2": "New York Jets",
             "week": 9,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Dallas Cowboys",
             "team2": "Atlanta Falcons",
             "week": 9,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Miami Dolphins",
             "team2": "Buffalo Bills",
             "week": 9,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Las Vegas Raiders",
             "team2": "Cincinnati Bengals",
             "week": 9,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Los Angeles Chargers",
             "team2": "Cleveland Browns",
             "week": 9,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New England Patriots",
             "team2": "Tennessee Titans",
             "week": 9,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Indianapolis Colts",
             "team2": "Minnesota Vikings",
             "week": 9,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Washington Commanders",
             "team2": "New York Giants",
             "week": 9,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New Orleans Saints",
             "team2": "Carolina Panthers",
             "week": 9,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Denver Broncos",
             "team2": "Baltimore Ravens",
             "week": 9,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Chicago Bears",
             "team2": "Arizona Cardinals",
             "week": 9,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Detroit Lions",
             "team2": "Green Bay Packers",
             "week": 9,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Los Angeles Rams",
             "team2": "Seattle Seahawks",
             "week": 9,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Jacksonville Jaguars",
             "team2": "Philadelphia Eagles",
             "week": 9,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Tampa Bay Buccaneers",
             "team2": "Kansas City Chiefs",
             "week": 9,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Cincinnati Bengals",
             "team2": "Baltimore Ravens",
             "week": 10,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New York Giants",
             "team2": "Carolina Panthers",
             "week": 10,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New England Patriots",
             "team2": "Chicago Bears",
             "week": 10,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Buffalo Bills",
             "team2": "Indianapolis Colts",
             "week": 10,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Denver Broncos",
             "team2": "Kansas City Chiefs",
             "week": 10,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Atlanta Falcons",
             "team2": "New Orleans Saints",
             "week": 10,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "San Francisco 49ers",
             "team2": "Tampa Bay Buccaneers",
             "week": 10,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Pittsburgh Steelers",
             "team2": "Washington Commanders",
             "week": 10,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Minnesota Vikings",
             "team2": "Jacksonville Jaguars",
             "week": 10,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Tennessee Titans",
             "team2": "Los Angeles Chargers",
             "week": 10,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Philadelphia Eagles",
             "team2": "Dallas Cowboys",
             "week": 10,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New York Jets",
             "team2": "Arizona Cardinals",
             "week": 10,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Detroit Lions",
             "team2": "Houston Texans",
             "week": 10,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Miami Dolphins",
             "team2": "Los Angeles Rams",
             "week": 10,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Washington Commanders",
             "team2": "Philadelphia Eagles",
             "week": 11,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Green Bay Packers",
             "team2": "Chicago Bears",
             "week": 11,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Jacksonville Jaguars",
             "team2": "Detroit Lions",
             "week": 11,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Minnesota Vikings",
             "team2": "Tennessee Titans",
             "week": 11,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Las Vegas Raiders",
             "team2": "Miami Dolphins",
             "week": 11,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Los Angeles Rams",
             "team2": "New England Patriots",
             "week": 11,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Cleveland Browns",
             "team2": "New Orleans Saints",
             "week": 11,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Baltimore Ravens",
             "team2": "Pittsburgh Steelers",
             "week": 11,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Atlanta Falcons",
             "team2": "Denver Broncos",
             "week": 11,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Seattle Seahawks",
             "team2": "San Francisco 49ers",
             "week": 11,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Kansas City Chiefs",
             "team2": "Buffalo Bills",
             "week": 11,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Cincinnati Bengals",
             "team2": "Los Angeles Chargers",
             "week": 11,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Indianapolis Colts",
             "team2": "New York Jets",
             "week": 11,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Houston Texans",
             "team2": "Dallas Cowboys",
             "week": 11,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Pittsburgh Steelers",
             "team2": "Cleveland Browns",
             "week": 12,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Minnesota Vikings",
             "team2": "Chicago Bears",
             "week": 12,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Detroit Lions",
             "team2": "Indianapolis Colts",
             "week": 12,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New England Patriots",
             "team2": "Miami Dolphins",
             "week": 12,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Tampa Bay Buccaneers",
             "team2": "New York Giants",
             "week": 12,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Dallas Cowboys",
             "team2": "Washington Commanders",
             "week": 12,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Kansas City Chiefs",
             "team2": "Carolina Panthers",
             "week": 12,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Tennessee Titans",
             "team2": "Houston Texans",
             "week": 12,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Denver Broncos",
             "team2": "Las Vegas Raiders",
             "week": 12,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "San Francisco 49ers",
             "team2": "Green Bay Packers",
             "week": 12,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Arizona Cardinals",
             "team2": "Seattle Seahawks",
             "week": 12,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Philadelphia Eagles",
             "team2": "Los Angeles Rams",
             "week": 12,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Baltimore Ravens",
             "team2": "Los Angeles Chargers",
             "week": 12,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Chicago Bears",
             "team2": "Detroit Lions",
             "week": 13,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New York Giants",
             "team2": "Dallas Cowboys",
             "week": 13,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Miami Dolphins",
             "team2": "Green Bay Packers",
             "week": 13,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Las Vegas Raiders",
             "team2": "Kansas City Chiefs",
             "week": 13,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Los Angeles Chargers",
             "team2": "Atlanta Falcons",
             "week": 13,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Pittsburgh Steelers",
             "team2": "Cincinnati Bengals",
             "week": 13,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Arizona Cardinals",
             "team2": "Minnesota Vikings",
             "week": 13,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Indianapolis Colts",
             "team2": "New England Patriots",
             "week": 13,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Seattle Seahawks",
             "team2": "New York Jets",
             "week": 13,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Tennessee Titans",
             "team2": "Washington Commanders",
             "week": 13,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Houston Texans",
             "team2": "Jacksonville Jaguars",
             "week": 13,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Los Angeles Rams",
             "team2": "New Orleans Saints",
             "week": 13,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Tampa Bay Buccaneers",
             "team2": "Carolina Panthers",
             "week": 13,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Philadelphia Eagles",
             "team2": "Baltimore Ravens",
             "week": 13,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "San Francisco 49ers",
             "team2": "Buffalo Bills",
             "week": 13,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Cleveland Browns",
             "team2": "Denver Broncos",
             "week": 13,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Green Bay Packers",
             "team2": "Detroit Lions",
             "week": 14,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Jacksonville Jaguars",
             "team2": "Tennessee Titans",
             "week": 14,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New York Jets",
             "team2": "Miami Dolphins",
             "week": 14,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Atlanta Falcons",
             "team2": "Minnesota Vikings",
             "week": 14,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New Orleans Saints",
             "team2": "New York Giants",
             "week": 14,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Carolina Panthers",
             "team2": "Philadelphia Eagles",
             "week": 14,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Cleveland Browns",
             "team2": "Pittsburgh Steelers",
             "week": 14,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Las Vegas Raiders",
             "team2": "Tampa Bay Buccaneers",
             "week": 14,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Seattle Seahawks",
             "team2": "Arizona Cardinals",
             "week": 14,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Buffalo Bills",
             "team2": "Los Angeles Rams",
             "week": 14,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Chicago Bears",
             "team2": "San Francisco 49ers",
             "week": 14,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Los Angeles Chargers",
             "team2": "Kansas City Chiefs",
             "week": 14,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Cincinnati Bengals",
             "team2": "Dallas Cowboys",
             "week": 14,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Los Angeles Rams",
             "team2": "San Francisco 49ers",
             "week": 15,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Kansas City Chiefs",
             "team2": "Cleveland Browns",
             "week": 15,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Cincinnati Bengals",
             "team2": "Tennessee Titans",
             "week": 15,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Washington Commanders",
             "team2": "New Orleans Saints",
             "week": 15,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Baltimore Ravens",
             "team2": "New York Giants",
             "week": 15,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Dallas Cowboys",
             "team2": "Carolina Panthers",
             "week": 15,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New York Jets",
             "team2": "Jacksonville Jaguars",
             "week": 15,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Miami Dolphins",
             "team2": "Houston Texans",
             "week": 15,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Indianapolis Colts",
             "team2": "Denver Broncos",
             "week": 15,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Buffalo Bills",
             "team2": "Detroit Lions",
             "week": 15,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Pittsburgh Steelers",
             "team2": "Philadelphia Eagles",
             "week": 15,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New England Patriots",
             "team2": "Arizona Cardinals",
             "week": 15,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Tampa Bay Buccaneers",
             "team2": "Los Angeles Chargers",
             "week": 15,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Green Bay Packers",
             "team2": "Seattle Seahawks",
             "week": 15,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Chicago Bears",
             "team2": "Minnesota Vikings",
             "week": 15,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Atlanta Falcons",
             "team2": "Las Vegas Raiders",
             "week": 15,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Cleveland Browns",
             "team2": "Cincinnati Bengals",
             "week": 16,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Houston Texans",
             "team2": "Kansas City Chiefs",
             "week": 16,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Pittsburgh Steelers",
             "team2": "Baltimore Ravens",
             "week": 16,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New York Giants",
             "team2": "Atlanta Falcons",
             "week": 16,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New England Patriots",
             "team2": "Buffalo Bills",
             "week": 16,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Detroit Lions",
             "team2": "Chicago Bears",
             "week": 16,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Tennessee Titans",
             "team2": "Indianapolis Colts",
             "week": 16,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Los Angeles Rams",
             "team2": "New York Jets",
             "week": 16,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Philadelphia Eagles",
             "team2": "Washington Commanders",
             "week": 16,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Arizona Cardinals",
             "team2": "Carolina Panthers",
             "week": 16,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Denver Broncos",
             "team2": "Los Angeles Chargers",
             "week": 16,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Minnesota Vikings",
             "team2": "Seattle Seahawks",
             "week": 16,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Jacksonville Jaguars",
             "team2": "Las Vegas Raiders",
             "week": 16,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "San Francisco 49ers",
             "team2": "Miami Dolphins",
             "week": 16,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Tampa Bay Buccaneers",
             "team2": "Dallas Cowboys",
             "week": 16,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New Orleans Saints",
             "team2": "Green Bay Packers",
             "week": 16,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Kansas City Chiefs",
             "team2": "Pittsburgh Steelers",
             "week": 17,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Baltimore Ravens",
             "team2": "Houston Texans",
             "week": 17,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Seattle Seahawks",
             "team2": "Chicago Bears",
             "week": 17,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Denver Broncos",
             "team2": "Cincinnati Bengals",
             "week": 17,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Arizona Cardinals",
             "team2": "Los Angeles Rams",
             "week": 17,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Los Angeles Chargers",
             "team2": "New England Patriots",
             "week": 17,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Indianapolis Colts",
             "team2": "New York Giants",
             "week": 17,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Atlanta Falcons",
             "team2": "Washington Commanders",
             "week": 17,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New York Jets",
             "team2": "Buffalo Bills",
             "week": 17,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Green Bay Packers",
             "team2": "Minnesota Vikings",
             "week": 17,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Las Vegas Raiders",
             "team2": "New Orleans Saints",
             "week": 17,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Carolina Panthers",
             "team2": "Tampa Bay Buccaneers",
             "week": 17,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Tennessee Titans",
             "team2": "Jacksonville Jaguars",
             "week": 17,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Dallas Cowboys",
             "team2": "Philadelphia Eagles",
             "week": 17,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Miami Dolphins",
             "team2": "Cleveland Browns",
             "week": 17,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Detroit Lions",
             "team2": "San Francisco 49ers",
             "week": 17,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Carolina Panthers",
             "team2": "Atlanta Falcons",
             "week": 18,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Jacksonville Jaguars",
             "team2": "Indianapolis Colts",
             "week": 18,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Minnesota Vikings",
             "team2": "Detroit Lions",
             "week": 18,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Chicago Bears",
             "team2": "Green Bay Packers",
             "week": 18,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Houston Texans",
             "team2": "Tennessee Titans",
             "week": 18,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Washington Commanders",
             "team2": "Dallas Cowboys",
             "week": 18,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Buffalo Bills",
             "team2": "New England Patriots",
             "week": 18,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Cleveland Browns",
             "team2": "Baltimore Ravens",
             "week": 18,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New York Giants",
             "team2": "Philadelphia Eagles",
             "week": 18,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Cincinnati Bengals",
             "team2": "Pittsburgh Steelers",
             "week": 18,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "New Orleans Saints",
             "team2": "Tampa Bay Buccaneers",
             "week": 18,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Kansas City Chiefs",
             "team2": "Denver Broncos",
             "week": 18,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Seattle Seahawks",
             "team2": "Los Angeles Rams",
             "week": 18,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "San Francisco 49ers",
             "team2": "Arizona Cardinals",
             "week": 18,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Los Angeles Chargers",
             "team2": "Las Vegas Raiders",
             "week": 18,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         },
         {
             "team1": "Miami Dolphins",
             "team2": "New York Jets",
             "week": 18,
-            "winner": null
+            "winner": null,
+            "points_scored_team1": 0,
+            "points_scored_team2": 0
         }
     ]
 }
